@@ -15,7 +15,7 @@ export default function MakeItYours() {
         <div>
           <span className="eyebrow reveal">Hazlo tuyo</span>
           <h2 className="reveal d1">Hazlo <span className="acc">como tú</span> quieras</h2>
-          <p className="reveal d2">Cuatro tamaños, cuatro granolas, un montón de toppings y todas las frutas que se te ocurran. Tú lo montas, nosotros lo bordamos.</p>
+          <p className="reveal d2">Cuatro tamaños, cuatro granolas, más de quince toppings y fruta fresca del día. Tú lo montas, nosotros lo bordamos.</p>
           <div className="miy-words reveal d3">
             {toppings.map((t) => (
               <span key={t.label} className={`word-chip${t.featured ? ' featured' : ''}`}>{t.label}</span>

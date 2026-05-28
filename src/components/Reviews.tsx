@@ -77,7 +77,7 @@ export default function Reviews() {
       </div>
 
       <div className="reviews-ctas reveal d3">
-        <span className="reviews-ctas-label">¿Has venido? Déjanos tu opinión</span>
+        <span className="reviews-ctas-label">¿Ya nos has probado? Cuéntalo</span>
         <div className="reviews-ctas-btns">
           <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Granada <span className="arrow">→</span></a>
           <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Sevilla <span className="arrow">→</span></a>

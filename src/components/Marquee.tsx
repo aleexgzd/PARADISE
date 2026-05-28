@@ -3,7 +3,7 @@ export default function Marquee() {
     'Açaí de verdad',
     'Sin postureo',
     'Granada · Sevilla',
-    'Bowls que parecen esculturas',
+    'Bowls que piden foto',
   ];
   const mascot = <span className="mascot-mini" aria-hidden="true"><img src="/assets/f8efcdd675.svg" alt="" /></span>;
 

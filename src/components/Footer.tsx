@@ -1,6 +1,9 @@
-import BrandName from './BrandName';
-
 export default function Footer() {
+  const navigate = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    (window as any).__navigateTo(path);
+  };
+
   return (
     <footer aria-label="Pie de página">
       <div className="footer-top">
@@ -11,9 +14,8 @@ export default function Footer() {
       </div>
       <div className="footer-grid">
         <div className="footer-brand">
-          <img className="palm" src="/assets/c74bf4c8a6.webp" alt="Logo Açaí Paradise" width={56} height={56} />
-          <div className="name"><BrandName /></div>
-          <p>Açaí y smoothies en Granada y Sevilla. Producto de verdad, estética de la calle.</p>
+          <img className="footer-logo" src="/assets/logo-full-blue.png" alt="Açaí Paradise" height={44} />
+          <p>Açaí y smoothies en Granada y Sevilla. Fruta fresca, buen rollo y estética de la calle.</p>
         </div>
         <div className="footer-col">
           <strong className="footer-heading">Menú</strong>
@@ -44,7 +46,13 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <div>© Açaí Paradise · 2026</div>
-        <div>Política de privacidad · Cookies · Aviso legal</div>
+        <div>
+          <a href="/privacidad" onClick={(e) => navigate(e, '/privacidad')}>Política de privacidad</a>
+          {' · '}
+          <a href="/cookies" onClick={(e) => navigate(e, '/cookies')}>Cookies</a>
+          {' · '}
+          <a href="/aviso-legal" onClick={(e) => navigate(e, '/aviso-legal')}>Aviso legal</a>
+        </div>
       </div>
     </footer>
   );

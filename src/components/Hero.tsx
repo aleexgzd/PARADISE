@@ -5,7 +5,7 @@ export default function Hero() {
       <div className="hero-content">
         <span className="hero-tag reveal"><span className="dot" /> Açaí Paradise · Bowls de açaí y smoothies en Granada y Sevilla</span>
         <h1 className="reveal d1">El paraíso<br />cabe en un<br /><span className="em">bowl</span></h1>
-        <p className="sub reveal d2">Açaí y smoothies en Granada y Sevilla. Solo producto de verdad en un bowl que sabe bien.</p>
+        <p className="sub reveal d2">Açaí y smoothies en Granada y Sevilla. Fruta fresca, recetas propias y nada que sobre.</p>
         <div className="hero-ctas reveal d3">
           <a href="#tiendas" className="btn btn-primary">Encuéntranos <span className="arrow">→</span></a>
           <a href="#bowls" className="btn btn-ghost">Ver la carta</a>

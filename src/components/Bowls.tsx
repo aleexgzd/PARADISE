@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import BrandName from './BrandName';
-import BreSvg from './BreSvg';
 
 interface Bowl {
   num: string;
@@ -25,7 +24,7 @@ const bowls: Record<string, Bowl> = {
   brasil: {
     num: '02 / 05',
     name: 'BRASIL',
-    tag: 'Plátano, crema de cacahuete y leche condensada. La receta brasileña original. Si no lo has probado, te ha pasado por encima.',
+    tag: 'Plátano, crema de cacahuete y leche condensada. La receta brasileña de toda la vida. Si no lo has probado, no sabes lo que te pierdes.',
     ings: ['açaí', 'granola 0% azúcar', 'crema cacahuete', 'leche condensada', 'leche en polvo', 'plátano'],
     img: '/assets/d02aecb644.webp',
     alt: 'Bowl Brasil',
@@ -33,7 +32,7 @@ const bowls: Record<string, Bowl> = {
   tropical: {
     num: '03 / 05',
     name: 'TROPICAL',
-    tag: 'Piña, mango, kiwi y crema de maracuyá. El más fresco. Y el más fotogénico.',
+    tag: 'Piña, mango, kiwi y crema de maracuyá. El más fresco de la carta. Y el que más fotos se lleva.',
     ings: ['açaí', 'granola crunchy', 'crema de maracuyá', 'pudding de chía', 'piña', 'mango', 'kiwi'],
     img: '/assets/f8036b505a.webp',
     alt: 'Bowl Tropical',
@@ -76,7 +75,7 @@ export default function Bowls() {
           <span className="eyebrow reveal">La carta</span>
           <h2 className="reveal d1">Lo que <span className="acc">servimos</span></h2>
         </div>
-        <p className="reveal d2">Cinco bowls que no se parecen entre sí. Recetas trabajadas, sabores que se entienden a la primera y un par de cosas que no vas a encontrar fuera.</p>
+        <p className="reveal d2">Cinco bowls, cinco rollos distintos. Recetas propias, ingredientes frescos y ninguno está de relleno.</p>
       </div>
 
       <div className="bowl-tabs" role="tablist" aria-label="Selector de bowl">

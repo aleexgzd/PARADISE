@@ -129,7 +129,7 @@ const schema = {
       '@id': 'https://acaiparadise.es/#org',
       name: 'Açaí Paradise',
       url: 'https://acaiparadise.es',
-      logo: 'https://acaiparadise.es/assets/c74bf4c8a6.webp',
+      logo: 'https://acaiparadise.es/assets/logo-full-blue.png',
       email: 'info@acaiparadise.es',
       sameAs: socialLinks,
     },

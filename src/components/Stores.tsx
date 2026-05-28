@@ -29,7 +29,7 @@ export default function Stores() {
                 <span className="day">Sábados y domingos</span> · 16:00 — 22:00
               </p>
               <div className="store-ctas">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Açaí+Paradise+Granada" target="_blank" rel="noopener" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
+                <a href="https://maps.app.goo.gl/zxZtzb7L4WeUQ8XV6" target="_blank" rel="noopener" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Granada" className="btn btn-blue">Trabaja con nosotros</a>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function Stores() {
                 <span className="day">Todos los días</span> · 16:00 — 22:00
               </p>
               <div className="store-ctas">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Açaí+Paradise+Sevilla" target="_blank" rel="noopener" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
+                <a href="https://maps.app.goo.gl/gFLrE63PyDLXMheS9" target="_blank" rel="noopener" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Sevilla" className="btn btn-blue">Trabaja con nosotros</a>
               </div>
             </div>

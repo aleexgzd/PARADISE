@@ -64,24 +64,22 @@ header {
   color: var(--blanco);
 }
 header.scrolled {
+  padding-top: 6px; padding-bottom: 6px;
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   color: var(--negro);
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-header.scrolled .brand img { filter: brightness(0) saturate(100%) invert(36%) sepia(58%) saturate(2120%) hue-rotate(213deg) brightness(96%) contrast(91%); }
 header.scrolled .cta-find { background: var(--azul); color: var(--blanco); }
 header.scrolled .cta-find:hover { background: var(--azul-deep); color: var(--amarillo); }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand img { width: 38px; height: 38px; transition: filter 0.3s; }
-.brand .wordmark {
-  font-family: var(--f-display);
-  font-size: 1.85rem;
-  letter-spacing: 0.005em;
-  line-height: 1;
-  transform: translateY(2px);
-}
+.brand { display: flex; align-items: center; text-decoration: none; }
+.brand-full { height: 66px; width: auto; position: absolute; left: 0; transition: opacity 0.35s ease; }
+.brand { position: relative; min-width: 200px; min-height: 66px; }
+.brand-full--light { opacity: 1; }
+.brand-full--dark { opacity: 0; }
+header.scrolled .brand-full--light { opacity: 0; }
+header.scrolled .brand-full--dark { opacity: 1; }
 nav { display: flex; align-items: center; gap: 36px; }
 .nav-links { display: flex; gap: 32px; list-style: none; font-size: 0.92rem; font-weight: 500; }
 .nav-links a { position: relative; transition: opacity 0.2s; }
@@ -914,12 +912,7 @@ footer {
   padding-bottom: 50px;
   border-bottom: 1px solid var(--gris-line);
 }
-.footer-brand .palm { width: 56px; height: 56px; margin-bottom: 16px; }
-.footer-brand .name {
-  font-family: var(--f-display);
-  font-size: 1.8rem;
-  margin-bottom: 12px;
-}
+.footer-logo { height: 66px; width: auto; margin-bottom: 16px; }
 .footer-brand p {
   font-size: 0.92rem;
   line-height: 1.5;
@@ -953,6 +946,8 @@ footer {
   font-size: 0.78rem;
   color: rgba(13,13,13,0.55);
 }
+.footer-bottom a { transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--azul); }
 
 .footer-top {
   position: relative;
@@ -1081,6 +1076,71 @@ footer {
   .marquee-item, .marquee-track { gap: 36px; }
   .bowl-info h3 { font-size: clamp(2.6rem, 12vw, 4rem); }
 }
+/* LEGAL PAGES */
+.legal {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 140px 4vw 100px;
+  color: var(--negro);
+  line-height: 1.7;
+}
+.legal h1 {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+.legal-updated {
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  color: rgba(13,13,13,0.5);
+  margin-bottom: 48px;
+}
+.legal h2 {
+  font-family: var(--f-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+.legal p {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.legal ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 14px;
+}
+.legal li {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.legal a {
+  color: var(--azul);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal a:hover {
+  color: var(--azul-deep);
+}
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--azul);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--f-body);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.legal-back:hover { opacity: 0.7; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

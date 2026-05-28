@@ -9,7 +9,7 @@ export default function Vibe() {
           <h2 className="reveal d1">Cómo es venir a <BrandName /></h2>
           <p className="lead reveal d2">No hace falta inventarse un plan.</p>
           <p className="reveal d2">Vienes. Pides. Te sientas.</p>
-          <p className="reveal d3">Te ríes de algo. Le enseñas el bowl al de al lado. <span className="acc">Sacas el móvil porque está demasiado bonito para no sacarlo.</span></p>
+          <p className="reveal d3">Te ríes de algo. Le enseñas el bowl al de al lado. <span className="acc">Sacas el móvil porque está demasiado bonito para no hacerle foto.</span></p>
           <p className="reveal d3">Sales con la sensación rara de que un día gris se ha puesto un poco mejor.</p>
           <div className="signature reveal d4">Eso, básicamente.</div>
         </div>
