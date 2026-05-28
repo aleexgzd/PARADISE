@@ -39,8 +39,8 @@ export default function Footer() {
           <strong className="footer-heading">Contacto</strong>
           <ul>
             <li><a href="mailto:info@acaiparadise.es">info@acaiparadise.es</a></li>
-            <li><a href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@acaiparadise.es" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@acaiparadise.es" target="_blank" rel="noopener noreferrer">TikTok</a></li>
           </ul>
         </div>
       </div>

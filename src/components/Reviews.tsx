@@ -40,12 +40,12 @@ export default function Reviews() {
           <h2 className="reveal d1">Fíate de ellos</h2>
         </div>
         <div className="score-pair reveal d2">
-          <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener" className="score">
+          <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener noreferrer" className="score">
             <div className="score-num">4,8</div>
             <div className="score-stars">★★★★★</div>
             <div className="score-info">429 reseñas · Granada</div>
           </a>
-          <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener" className="score">
+          <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener noreferrer" className="score">
             <div className="score-num">4,9</div>
             <div className="score-stars">★★★★★</div>
             <div className="score-info">73 reseñas · Sevilla</div>
@@ -79,8 +79,8 @@ export default function Reviews() {
       <div className="reviews-ctas reveal d3">
         <span className="reviews-ctas-label">¿Ya nos has probado? Cuéntalo</span>
         <div className="reviews-ctas-btns">
-          <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Granada <span className="arrow">→</span></a>
-          <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Sevilla <span className="arrow">→</span></a>
+          <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Reseñar Granada <span className="arrow">→</span></a>
+          <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Reseñar Sevilla <span className="arrow">→</span></a>
         </div>
       </div>
     </section>

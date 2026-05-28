@@ -17,15 +17,15 @@ export default function Social() {
           <div className="handle-block reveal d2">
             <div className="handle">@acaiparadise.es</div>
             <div className="channels">
-              <a href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener noreferrer">Instagram</a>
               {' · '}
-              <a href="https://www.tiktok.com/@acaiparadise.es" target="_blank" rel="noopener">TikTok</a>
+              <a href="https://www.tiktok.com/@acaiparadise.es" target="_blank" rel="noopener noreferrer">TikTok</a>
             </div>
           </div>
         </div>
         <div className="ig-grid reveal d2">
           {tiles.map((t) => (
-            <a key={t.label} href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener" className="ig-tile" aria-label={`Instagram post: ${t.aria}`}>
+            <a key={t.label} href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener noreferrer" className="ig-tile" aria-label={`Instagram post: ${t.aria}`}>
               <img src={t.img} alt={t.alt} loading="lazy" />
               <span className="ig-label">{t.label}</span>
             </a>
