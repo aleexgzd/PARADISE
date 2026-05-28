@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header id="hdr" className={scrolled ? 'scrolled' : ''}>
       <a href="#" className="brand" aria-label="Açaí Paradise — Inicio">
-        <img src="/assets/abde433eb1.webp" alt="" id="brandPalm" width={38} height={38} />
+        <img src="/assets/abde433eb1.webp" alt="Logo Açaí Paradise" id="brandPalm" width={38} height={38} />
         <span className="wordmark"><BrandName /></span>
       </a>
       <button

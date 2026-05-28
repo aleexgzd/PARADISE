@@ -16,7 +16,7 @@ export default function Footer() {
           <p>Açaí y smoothies en Granada y Sevilla. Producto de verdad, estética de la calle.</p>
         </div>
         <div className="footer-col">
-          <h4>Menú</h4>
+          <strong className="footer-heading">Menú</strong>
           <ul>
             <li><a href="#manifiesto">Quiénes somos</a></li>
             <li><a href="#bowls">Productos</a></li>
@@ -25,7 +25,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Tiendas</h4>
+          <strong className="footer-heading">Tiendas</strong>
           <ul>
             <li>Granada</li>
             <li className="small">Plaza de la Universidad, 1</li>
@@ -34,11 +34,11 @@ export default function Footer() {
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Contacto</h4>
+          <strong className="footer-heading">Contacto</strong>
           <ul>
             <li><a href="mailto:info@acaiparadise.es">info@acaiparadise.es</a></li>
-            <li><a href="https://instagram.com/acaiparadise.es" target="_blank" rel="noopener">@acaiparadise.es</a></li>
-            <li className="small">Instagram · TikTok</li>
+            <li><a href="https://www.instagram.com/acaiparadise.es" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@acaiparadise.es" target="_blank" rel="noopener">TikTok</a></li>
           </ul>
         </div>
       </div>

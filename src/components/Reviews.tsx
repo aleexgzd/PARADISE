@@ -1,34 +1,87 @@
 const reviews = [
-  { quote: '"El mejor açaí que he probado en Granada. Vine una vez por curiosidad y ahora caigo cada semana. La crema paradise es droga."', name: 'Lucía M.', initial: 'L', time: 'Hace 2 semanas', delay: '' },
-  { quote: '"Estética cuidada, producto top, trato cercano. Le dije al de la barra que me sorprendiera y me clavó un Tropical de campeonato."', name: 'Daniel P.', initial: 'D', time: 'Hace 1 mes', delay: 'd1' },
-  { quote: '"Por fin abrieron en Sevilla. Llevábamos meses esperando esto. El Brasil con la crema de cacahuete es para guardarlo en una caja fuerte."', name: 'Patricia R.', initial: 'P', time: 'Hace 3 semanas', delay: 'd2' },
+  {
+    quote: 'Fuimos ayer por primera vez y nos encantó la experiencia. Había bastante gente, pero aun así las chicas tuvieron muchísima paciencia con nosotras, nos explicaron todo súper bien y nos ayudaron a elegir sin ningún problema. Se nota que atienden con ganas y muy buen trato. Además, estaba todo buenísimo, el açaí súper rico y la fruta muy fresca. Sin duda volveremos :)',
+    name: 'Claudia Chamorro',
+    initial: 'C',
+    time: 'Hace 1 semana',
+    scores: 'Comida 5/5 · Servicio 5/5 · Ambiente 5/5',
+    delay: '',
+  },
+  {
+    quote: 'Nos encanta el açaí, hemos probado muchos y este es sin duda el mejor, sabor delicioso, textura perfecta, nada que mejorar. Buen precio, la atención es muy buena, son súper amables, volveremos sin duda.',
+    name: 'Diana Sinisterra',
+    initial: 'D',
+    time: 'Hace 1 mes',
+    scores: 'Comida 5/5 · Servicio 5/5 · Ambiente 5/5',
+    delay: 'd1',
+  },
+  {
+    quote: 'Nuestra primera vez probándolo, y estaba exquisito. La fruta muy buena y fresca y la cantidad por el precio muy bien. Repetiremos 😄',
+    name: 'Celia',
+    initial: 'Ce',
+    time: 'Hace 1 día',
+    scores: 'Comida 5/5 · Servicio 5/5 · Ambiente 3/5',
+    delay: 'd2',
+  },
+];
+
+const highlights = [
+  { name: 'Raquel Villén', quote: 'Cada vez que paseo por Granada, merienda imprescindible y trato exquisito.' },
+  { name: 'Luciiaa', quote: 'La relación calidad-precio es bastante buena y no escatiman en ingredientes.' },
+  { name: 'Nieves Albarrán', quote: 'A cuál más majo y simpático, trabajan súper eficaces y limpios.' },
 ];
 
 export default function Reviews() {
   return (
-    <section className="reviews" aria-label="Lo que dicen los clientes">
+    <section className="reviews" id="resenas" aria-label="Reseñas de clientes en Google">
       <div className="reviews-head">
         <div>
           <span className="eyebrow reveal">No te fíes de nosotros</span>
           <h2 className="reveal d1">Fíate de ellos</h2>
         </div>
-        <div className="score reveal d2">
-          <div className="score-num">4.8</div>
-          <div className="score-stars">★★★★★</div>
-          <div className="score-info">312 reseñas en Google · Granada y Sevilla</div>
+        <div className="score-pair reveal d2">
+          <a href="https://www.google.com/maps/search/Açaí+Paradise+Granada" target="_blank" rel="noopener" className="score">
+            <div className="score-num">4,8</div>
+            <div className="score-stars">★★★★★</div>
+            <div className="score-info">429 reseñas · Granada</div>
+          </a>
+          <a href="https://www.google.com/maps/search/Açaí+Paradise+Sevilla" target="_blank" rel="noopener" className="score">
+            <div className="score-num">4,9</div>
+            <div className="score-stars">★★★★★</div>
+            <div className="score-info">73 reseñas · Sevilla</div>
+          </a>
         </div>
       </div>
+
       <div className="reviews-grid">
         {reviews.map((r) => (
           <article key={r.name} className={`review-card reveal ${r.delay}`}>
             <div className="stars">★★★★★</div>
             <p className="quote">{r.quote}</p>
+            <div className="review-scores">{r.scores}</div>
             <div className="author">
               <div className="avatar">{r.initial}</div>
               <div><strong>{r.name}</strong><small>{r.time}</small></div>
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="reviews-highlights reveal d2">
+        {highlights.map((h) => (
+          <div key={h.name} className="highlight-chip">
+            <span className="highlight-quote">"{h.quote}"</span>
+            <span className="highlight-name">— {h.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="reviews-ctas reveal d3">
+        <span className="reviews-ctas-label">¿Has venido? Déjanos tu opinión</span>
+        <div className="reviews-ctas-btns">
+          <a href="https://www.google.com/maps/search/Açaí+Paradise+Granada" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Granada <span className="arrow">→</span></a>
+          <a href="https://www.google.com/maps/search/Açaí+Paradise+Sevilla" target="_blank" rel="noopener" className="btn btn-dark">Reseñar Sevilla <span className="arrow">→</span></a>
+        </div>
       </div>
     </section>
   );

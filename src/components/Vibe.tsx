@@ -2,7 +2,7 @@ import BrandName from './BrandName';
 
 export default function Vibe() {
   return (
-    <section className="vibe">
+    <section className="vibe" id="experiencia">
       <div className="vibe-grid">
         <div className="vibe-text">
           <span className="eyebrow reveal" style={{ color: 'var(--amarillo)' }}>El plan</span>
@@ -13,9 +13,9 @@ export default function Vibe() {
           <p className="reveal d3">Sales con la sensación rara de que un día gris se ha puesto un poco mejor.</p>
           <div className="signature reveal d4">Eso, básicamente.</div>
         </div>
-        <div className="vibe-photos reveal d2" aria-hidden="true">
-          <div className="ph ph-a"><img src="/assets/5289370d2b.webp" alt="" /></div>
-          <div className="ph ph-b"><img src="/assets/e7234417d3.webp" alt="" /></div>
+        <div className="vibe-photos reveal d2">
+          <div className="ph ph-a"><img src="/assets/5289370d2b.webp" alt="Cliente disfrutando de un bowl de açaí en Açaí Paradise" loading="lazy" /></div>
+          <div className="ph ph-b"><img src="/assets/e7234417d3.webp" alt="Bowls de açaí sobre una moto al atardecer en Granada" loading="lazy" /></div>
         </div>
       </div>
     </section>

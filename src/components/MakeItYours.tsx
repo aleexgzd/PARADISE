@@ -15,7 +15,7 @@ export default function MakeItYours() {
         <div>
           <span className="eyebrow reveal">Hazlo tuyo</span>
           <h2 className="reveal d1">Hazlo <span className="acc">como tú</span> quieras</h2>
-          <p className="reveal d2">Cuatro tamaños, cuatro granolas, una caterva de toppings y todas las frutas que se te ocurran. Tú lo montas, nosotros lo bordamos.</p>
+          <p className="reveal d2">Cuatro tamaños, cuatro granolas, un montón de toppings y todas las frutas que se te ocurran. Tú lo montas, nosotros lo bordamos.</p>
           <div className="miy-words reveal d3">
             {toppings.map((t) => (
               <span key={t.label} className={`word-chip${t.featured ? ' featured' : ''}`}>{t.label}</span>
@@ -24,7 +24,7 @@ export default function MakeItYours() {
           <a href="#tiendas" className="btn btn-yellow">Quiero el mío <span className="arrow">→</span></a>
         </div>
         <div className="miy-photo reveal d2">
-          <img src="/assets/f873a8d6b0.webp" alt="Dos bowls vistos desde arriba con zapatillas en una calle de Granada" loading="lazy" />
+          <img src="/assets/f873a8d6b0.webp" alt="Dos bowls de açaí vistos desde arriba con toppings personalizados en Granada" loading="lazy" decoding="async" />
           <div className="badge">
             <small>Desde</small>
             5€
