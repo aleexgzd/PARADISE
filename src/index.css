@@ -755,7 +755,7 @@ nav { display: flex; align-items: center; gap: 36px; }
 /* SOCIAL */
 .social {
   background: var(--blanco);
-  padding: clamp(80px, 12vw, 140px) 4vw 0;
+  padding: clamp(80px, 12vw, 140px) 4vw clamp(80px, 10vw, 120px);
 }
 .social-inner { max-width: 1400px; margin: 0 auto; }
 .social-head {
