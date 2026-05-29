@@ -444,7 +444,7 @@ nav { display: flex; align-items: center; gap: 36px; }
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-bottom: 50px;
+  padding: 12px 0 16px;
   flex-direction: column;
 }
 .bowl-dot {
@@ -1082,12 +1082,13 @@ footer {
   nav .nav-mobile li:last-child { border-bottom: none; }
 
   /* — Hero — */
-  .hero { padding: 90px 5vw 60px; min-height: 100dvh; }
+  .hero { padding: 90px 5vw 60px; min-height: 100dvh; align-items: flex-end; }
+  .hero-content { padding-bottom: 10vh; }
   .hero-meta { display: none; }
   .scroll-cue { display: none; }
   .hero-tag { font-size: 0.68rem; padding: 6px 12px; margin-bottom: 22px; }
   .hero h1 { font-size: clamp(2.8rem, 11vw, 4.5rem); margin-bottom: 20px; }
-  .hero .sub { font-size: 1rem; margin-bottom: 32px; max-width: none; }
+  .hero .sub { font-size: 1rem; margin-bottom: 36px; max-width: none; }
   .hero-ctas { gap: 12px; }
   .hero-ctas .btn { padding: 15px 26px; font-size: 0.92rem; }
 
@@ -1105,15 +1106,14 @@ footer {
   .bowls { padding-top: clamp(60px, 10vw, 100px); }
   .bowls-head { grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
   .bowls h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
-  .bowl-tabs { gap: 4px; padding: 0 5vw; margin-bottom: 8px; }
-  .bowl-tabs-hint { display: block; }
+  .bowl-tabs { gap: 4px; padding: 0 5vw; margin-bottom: 24px; }
+  .bowl-tabs-hint { display: none; }
   .bowl-tab { font-size: 1.5rem; padding: 10px 12px; }
   .bowl-stage {
-    grid-template-columns: 1fr; gap: 24px; padding: 40px 5vw 30px;
+    grid-template-columns: 1fr; gap: 0; padding: 20px 5vw 40px;
     touch-action: pan-y;
   }
-  .bowl-info { order: 2; }
-  .bowl-img { order: 1; max-width: 60%; margin: 0 auto; }
+  .bowl-img { max-width: 60%; margin: 0 auto; }
   .bowl-info h3 { font-size: clamp(2.4rem, 10vw, 3.6rem); margin-bottom: 18px; }
   .bowl-info .tagline { font-size: 1rem; margin-bottom: 24px; }
   .bowl-ings { max-width: none; margin-bottom: 28px; }
@@ -1140,13 +1140,13 @@ footer {
   .reviews { padding: clamp(60px, 10vw, 100px) 5vw; }
   .reviews-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
   .reviews h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
-  .score-pair { gap: 28px; }
-  .reviews .score-num { font-size: clamp(2.4rem, 7vw, 3.2rem); }
+  .score-pair { gap: 24px; flex-direction: row; }
+  .reviews .score-num { font-size: clamp(2rem, 6vw, 2.8rem); }
+  .reviews .score-stars { font-size: 1.1rem; }
+  .reviews .score-info { font-size: 0.75rem; }
   .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
   .review-card { padding: 24px 22px 22px; border-radius: 18px; }
   .review-card .quote { font-size: 0.95rem; margin-bottom: 18px; }
-  .reviews-highlights { gap: 12px; margin-top: 32px; }
-  .highlight-chip { padding: 14px 18px; max-width: none; font-size: 0.88rem; border-radius: 12px; }
   .reviews-ctas { margin-top: 36px; gap: 14px; }
 
   /* — Stores — */
@@ -1210,7 +1210,10 @@ footer {
   .vibe-photos .ph-a { width: 62%; }
   .vibe-photos .ph-b { width: 60%; }
   .vibe .signature { font-size: clamp(1.6rem, 6vw, 2.4rem); }
-  .score-pair { flex-direction: column; gap: 20px; }
+  .score-pair { flex-direction: row; gap: 20px; }
+  .reviews .score-num { font-size: clamp(1.8rem, 5.5vw, 2.4rem); }
+  .reviews .score-stars { font-size: 1rem; letter-spacing: 0.02em; }
+  .reviews .score-info { font-size: 0.68rem; }
   .reviews-ctas-btns { flex-direction: column; width: 100%; }
   .reviews-ctas-btns .btn { width: 100%; justify-content: center; }
   .store-ctas { flex-direction: column; }
@@ -1218,7 +1221,6 @@ footer {
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom div:last-child { display: flex; flex-direction: column; gap: 4px; }
   .word-chip { font-size: 0.88rem; padding: 8px 14px; }
-  .highlight-chip { font-size: 0.85rem; padding: 12px 16px; }
   .ig-grid { gap: 8px; }
 }
 /* LEGAL PAGES */

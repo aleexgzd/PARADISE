@@ -122,14 +122,26 @@ export default function Bowls() {
           );
         })}
       </div>
-      <div className="bowl-tabs-hint" aria-hidden="true">Desliza para ver todos →</div>
-
       <div
         className="bowl-stage"
         id="bowlStage"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
+        <div className="bowl-img fade-in" key={fadeKey}>
+          <img src={b.img} alt={b.alt} width={560} height={560} loading="lazy" decoding="async" />
+        </div>
+        <div className="bowl-dots" aria-hidden="true">
+          {keys.map((key, i) => (
+            <button
+              key={key}
+              className={`bowl-dot${i === activeIdx ? ' active' : ''}`}
+              onClick={() => select(key)}
+              aria-label={bowls[key].name}
+            />
+          ))}
+          <span className="bowl-swipe-hint">← Desliza →</span>
+        </div>
         <div className="bowl-info">
           <div className="num">{b.num}</div>
           <h3>{b.nameJsx ? <BrandName /> : b.name}</h3>
@@ -147,21 +159,6 @@ export default function Bowls() {
           </div>
           <a href="#tiendas" className="btn btn-yellow">Pruébalo <span className="arrow">→</span></a>
         </div>
-        <div className="bowl-img fade-in" key={fadeKey}>
-          <img src={b.img} alt={b.alt} width={560} height={560} loading="lazy" decoding="async" />
-        </div>
-      </div>
-
-      <div className="bowl-dots" aria-hidden="true">
-        {keys.map((key, i) => (
-          <button
-            key={key}
-            className={`bowl-dot${i === activeIdx ? ' active' : ''}`}
-            onClick={() => select(key)}
-            aria-label={bowls[key].name}
-          />
-        ))}
-        <span className="bowl-swipe-hint">← Desliza →</span>
       </div>
     </section>
   );
