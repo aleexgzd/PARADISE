@@ -13,7 +13,6 @@ import Stores from './components/Stores';
 import Social from './components/Social';
 import Franchise from './components/Franchise';
 import Footer from './components/Footer';
-import StickyCta from './components/StickyCta';
 import LocalBusinessSchema from './components/LocalBusinessSchema';
 import Privacidad from './pages/Privacidad';
 import Cookies from './pages/Cookies';
@@ -47,7 +46,6 @@ function HomePage() {
         <Social />
         <Franchise />
       </main>
-      <StickyCta />
       <LocalBusinessSchema />
     </>
   );
