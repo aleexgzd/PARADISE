@@ -825,6 +825,11 @@ nav { display: flex; align-items: center; gap: 36px; }
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+.delivery-logos img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
 .delivery-logos a:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
