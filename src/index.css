@@ -338,7 +338,7 @@ nav { display: flex; align-items: center; gap: 36px; }
   font-size: clamp(2.6rem, 7vw, 6.5rem);
   line-height: 0.88; letter-spacing: -0.005em;
 }
-.bowls h2 .acc { color: var(--azul); }
+.bowls h2 .acc { color: var(--blanco); }
 .bowls-head p {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   opacity: 0.85; max-width: 40ch;
@@ -799,6 +799,36 @@ nav { display: flex; align-items: center; gap: 36px; }
 .store-hours .day { font-weight: 500; color: var(--negro); }
 .store-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
 .store .btn { align-self: flex-start; }
+.store-delivery {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.delivery-label {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+}
+.delivery-logos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.delivery-logos a {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.delivery-logos a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
 /* SOCIAL */
 .social {

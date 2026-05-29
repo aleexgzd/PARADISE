@@ -21,7 +21,6 @@ export default function MakeItYours() {
               <span key={t.label} className={`word-chip${t.featured ? ' featured' : ''}`}>{t.label}</span>
             ))}
           </div>
-          <a href="#tiendas" className="btn btn-yellow">Quiero el mío <span className="arrow">→</span></a>
         </div>
         <div className="miy-photo reveal d2">
           <img src="/assets/f873a8d6b0.webp" alt="Dos bowls de açaí vistos desde arriba con toppings personalizados en Granada" loading="lazy" decoding="async" />

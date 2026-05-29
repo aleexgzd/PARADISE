@@ -32,6 +32,17 @@ export default function Stores() {
                 <a href="https://maps.app.goo.gl/zxZtzb7L4WeUQ8XV6" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Granada" className="btn btn-blue">Trabaja con nosotros</a>
               </div>
+              <div className="store-delivery">
+                <span className="delivery-label">Pide a domicilio</span>
+                <div className="delivery-logos">
+                  <a href="https://glovoapp.com/es/es/granada/stores/acai-paradise-granada" target="_blank" rel="noopener noreferrer" aria-label="Pedir en Glovo Granada">
+                    <img src="/assets/glovo.svg" alt="Glovo" width={36} height={36} />
+                  </a>
+                  <a href="https://www.ubereats.com/es/store/acai-paradise/Oo67PqodW6OgC13K_QBBXQ" target="_blank" rel="noopener noreferrer" aria-label="Pedir en Uber Eats Granada">
+                    <img src="/assets/ubereats.svg" alt="Uber Eats" width={36} height={36} />
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
           <article className="store reveal d1">
@@ -54,6 +65,17 @@ export default function Stores() {
               <div className="store-ctas">
                 <a href="https://maps.app.goo.gl/gFLrE63PyDLXMheS9" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Sevilla" className="btn btn-blue">Trabaja con nosotros</a>
+              </div>
+              <div className="store-delivery">
+                <span className="delivery-label">Pide a domicilio</span>
+                <div className="delivery-logos">
+                  <a href="https://glovoapp.com/es/es/sevilla/stores/acai-paradise-sevilla" target="_blank" rel="noopener noreferrer" aria-label="Pedir en Glovo Sevilla">
+                    <img src="/assets/glovo.svg" alt="Glovo" width={36} height={36} />
+                  </a>
+                  <a href="https://www.ubereats.com/es/store/acai-paradise-sevilla/FcgQBm3mXd67qH1DO9gu4w" target="_blank" rel="noopener noreferrer" aria-label="Pedir en Uber Eats Sevilla">
+                    <img src="/assets/ubereats.svg" alt="Uber Eats" width={36} height={36} />
+                  </a>
+                </div>
               </div>
             </div>
           </article>
