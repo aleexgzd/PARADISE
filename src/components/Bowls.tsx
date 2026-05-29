@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import BrandName from './BrandName';
 
 interface Bowl {
@@ -91,6 +91,12 @@ export default function Bowls() {
     }
     touchRef.current = null;
   };
+
+  // Auto-scroll tab into view when active bowl changes
+  useEffect(() => {
+    const el = document.querySelector(`.bowl-tab[data-bowl="${active}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [active]);
 
   const b = bowls[active];
   const activeIdx = keys.indexOf(active);
