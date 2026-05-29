@@ -61,6 +61,7 @@ export default function Bowls() {
   const [active, setActive] = useState('paradise');
   const [fadeKey, setFadeKey] = useState(0);
   const touchRef = useRef<{ startX: number; startY: number } | null>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
 
   const select = useCallback((key: string) => {
     setActive(key);
@@ -92,10 +93,14 @@ export default function Bowls() {
     touchRef.current = null;
   };
 
-  // Auto-scroll tab into view when active bowl changes
+  // Auto-scroll tabs container so the active tab is visible
   useEffect(() => {
-    const el = document.querySelector(`.bowl-tab[data-bowl="${active}"]`);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const container = tabsRef.current;
+    if (!container) return;
+    const tab = container.querySelector<HTMLElement>(`[data-bowl="${active}"]`);
+    if (!tab) return;
+    const scrollLeft = tab.offsetLeft - container.offsetWidth / 2 + tab.offsetWidth / 2;
+    container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
   }, [active]);
 
   const b = bowls[active];
@@ -111,7 +116,7 @@ export default function Bowls() {
         <p className="reveal d2">Cinco bowls, cinco rollos distintos. Recetas propias, ingredientes frescos y ninguno está de relleno.</p>
       </div>
 
-      <div className="bowl-tabs" role="tablist" aria-label="Selector de bowl">
+      <div className="bowl-tabs" ref={tabsRef} role="tablist" aria-label="Selector de bowl">
         {keys.map((key) => {
           const bowl = bowls[key];
           return (
