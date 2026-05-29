@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import BrandName from './BrandName';
 
 interface Bowl {
@@ -61,6 +61,9 @@ export default function Bowls() {
   const [active, setActive] = useState('paradise');
   const [fadeKey, setFadeKey] = useState(0);
   const touchRef = useRef<{ startX: number; startY: number } | null>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   const select = useCallback((key: string) => {
     setActive(key);
@@ -92,6 +95,32 @@ export default function Bowls() {
     touchRef.current = null;
   };
 
+  // Detect scroll position of tabs
+  const checkTabsScroll = useCallback(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 8);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 8);
+  }, []);
+
+  useEffect(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    checkTabsScroll();
+    el.addEventListener('scroll', checkTabsScroll, { passive: true });
+    window.addEventListener('resize', checkTabsScroll);
+    return () => {
+      el.removeEventListener('scroll', checkTabsScroll);
+      window.removeEventListener('resize', checkTabsScroll);
+    };
+  }, [checkTabsScroll]);
+
+  const scrollTabs = (dir: 'left' | 'right') => {
+    const el = tabsRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === 'right' ? 150 : -150, behavior: 'smooth' });
+  };
+
   const b = bowls[active];
   const activeIdx = keys.indexOf(active);
 
@@ -105,23 +134,32 @@ export default function Bowls() {
         <p className="reveal d2">Cinco bowls, cinco rollos distintos. Recetas propias, ingredientes frescos y ninguno está de relleno.</p>
       </div>
 
-      <div className="bowl-tabs" role="tablist" aria-label="Selector de bowl">
-        {keys.map((key) => {
-          const bowl = bowls[key];
-          return (
-            <button
-              key={key}
-              className={`bowl-tab${active === key ? ' active' : ''}`}
-              data-bowl={key}
-              role="tab"
-              aria-selected={active === key}
-              onClick={() => select(key)}
-            >
-              {bowl.nameJsx ? <BrandName /> : bowl.name}
-            </button>
-          );
-        })}
+      <div className="bowl-tabs-wrap">
+        {canScrollLeft && (
+          <button className="bowl-tabs-arrow bowl-tabs-arrow--left" onClick={() => scrollTabs('left')} aria-label="Scroll izquierda">‹</button>
+        )}
+        <div className="bowl-tabs" ref={tabsRef} role="tablist" aria-label="Selector de bowl">
+          {keys.map((key) => {
+            const bowl = bowls[key];
+            return (
+              <button
+                key={key}
+                className={`bowl-tab${active === key ? ' active' : ''}`}
+                data-bowl={key}
+                role="tab"
+                aria-selected={active === key}
+                onClick={() => select(key)}
+              >
+                {bowl.nameJsx ? <BrandName /> : bowl.name}
+              </button>
+            );
+          })}
+        </div>
+        {canScrollRight && (
+          <button className="bowl-tabs-arrow bowl-tabs-arrow--right" onClick={() => scrollTabs('right')} aria-label="Scroll derecha">›</button>
+        )}
       </div>
+
       <div
         className="bowl-stage"
         id="bowlStage"

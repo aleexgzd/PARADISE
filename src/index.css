@@ -351,6 +351,36 @@ nav { display: flex; align-items: center; gap: 36px; }
   max-width: 1400px; margin-inline: auto;
 }
 .bowl-tabs::-webkit-scrollbar { display: none; }
+
+/* Bowl tabs wrapper + arrows */
+.bowl-tabs-wrap {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.bowl-tabs-arrow {
+  display: none;               /* hidden on desktop */
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 4;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  color: var(--blanco);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s;
+}
+.bowl-tabs-arrow:hover {
+  background: rgba(0,0,0,0.8);
+  border-color: var(--amarillo);
+}
+.bowl-tabs-arrow--left  { left: 6px; }
+.bowl-tabs-arrow--right { right: 6px; }
+
 .bowl-tabs-hint {
   display: none;
   font-family: var(--f-mono);
@@ -443,9 +473,10 @@ nav { display: flex; align-items: center; gap: 36px; }
   display: none;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 12px 0 16px;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .bowl-dot {
   width: 10px; height: 10px;
@@ -465,7 +496,9 @@ nav { display: flex; align-items: center; gap: 36px; }
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   color: rgba(255,255,255,0.35);
-  margin-top: 6px;
+  margin-top: 2px;
+  width: 100%;
+  text-align: center;
 }
 
 /* MAKE IT YOURS */
@@ -632,6 +665,10 @@ nav { display: flex; align-items: center; gap: 36px; }
   line-height: 0.9; letter-spacing: -0.005em;
 }
 .score-pair { display: flex; gap: 40px; align-items: flex-start; }
+.score-pair .score + .score {
+  padding-left: 40px;
+  border-left: 1px solid rgba(0,0,0,0.15);
+}
 .reviews .score { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; text-decoration: none; transition: opacity 0.2s; }
 .reviews .score:hover { opacity: 0.75; }
 .reviews .score-num {
@@ -1082,13 +1119,13 @@ footer {
   nav .nav-mobile li:last-child { border-bottom: none; }
 
   /* — Hero — */
-  .hero { padding: 90px 5vw 60px; min-height: 100dvh; align-items: flex-end; }
-  .hero-content { padding-bottom: 10vh; }
+  .hero { padding: 90px 5vw 48px; min-height: 100dvh; align-items: flex-end; }
+  .hero-content { padding-bottom: 0; }
   .hero-meta { display: none; }
   .scroll-cue { display: none; }
   .hero-tag { font-size: 0.68rem; padding: 6px 12px; margin-bottom: 22px; }
-  .hero h1 { font-size: clamp(2.8rem, 11vw, 4.5rem); margin-bottom: 20px; }
-  .hero .sub { font-size: 1rem; margin-bottom: 36px; max-width: none; }
+  .hero h1 { font-size: clamp(2.8rem, 11vw, 4.5rem); margin-bottom: 28px; }
+  .hero .sub { font-size: 1rem; margin-bottom: 44px; max-width: none; }
   .hero-ctas { gap: 12px; }
   .hero-ctas .btn { padding: 15px 26px; font-size: 0.92rem; }
 
@@ -1106,8 +1143,9 @@ footer {
   .bowls { padding-top: clamp(60px, 10vw, 100px); }
   .bowls-head { grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
   .bowls h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
-  .bowl-tabs { gap: 4px; padding: 0 5vw; margin-bottom: 24px; }
+  .bowl-tabs { gap: 4px; padding: 0 12vw; margin-bottom: 24px; }
   .bowl-tabs-hint { display: none; }
+  .bowl-tabs-arrow { display: flex; align-items: center; justify-content: center; }
   .bowl-tab { font-size: 1.5rem; padding: 10px 12px; }
   .bowl-stage {
     grid-template-columns: 1fr; gap: 0; padding: 20px 5vw 40px;
@@ -1141,6 +1179,7 @@ footer {
   .reviews-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
   .reviews h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
   .score-pair { gap: 24px; flex-direction: row; }
+  .score-pair .score + .score { padding-left: 24px; }
   .reviews .score-num { font-size: clamp(2rem, 6vw, 2.8rem); }
   .reviews .score-stars { font-size: 1.1rem; }
   .reviews .score-info { font-size: 0.75rem; }
@@ -1211,6 +1250,7 @@ footer {
   .vibe-photos .ph-b { width: 60%; }
   .vibe .signature { font-size: clamp(1.6rem, 6vw, 2.4rem); }
   .score-pair { flex-direction: row; gap: 20px; }
+  .score-pair .score + .score { padding-left: 20px; }
   .reviews .score-num { font-size: clamp(1.8rem, 5.5vw, 2.4rem); }
   .reviews .score-stars { font-size: 1rem; letter-spacing: 0.02em; }
   .reviews .score-info { font-size: 0.68rem; }
