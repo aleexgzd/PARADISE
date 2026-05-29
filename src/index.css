@@ -351,6 +351,16 @@ nav { display: flex; align-items: center; gap: 36px; }
   max-width: 1400px; margin-inline: auto;
 }
 .bowl-tabs::-webkit-scrollbar { display: none; }
+.bowl-tabs-hint {
+  display: none;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+  padding: 0 5vw;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
 .bowl-tab {
   font-family: var(--f-display);
   font-size: clamp(2rem, 4vw, 4rem);
@@ -426,6 +436,36 @@ nav { display: flex; align-items: center; gap: 36px; }
 @keyframes bowlIn {
   0%   { opacity: 0; transform: translateY(30px) scale(0.94); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Bowl dots (mobile) */
+.bowl-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+  flex-direction: column;
+}
+.bowl-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+.bowl-dot.active {
+  background: var(--amarillo);
+  transform: scale(1.3);
+}
+.bowl-swipe-hint {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  margin-top: 6px;
 }
 
 /* MAKE IT YOURS */
@@ -523,6 +563,8 @@ nav { display: flex; align-items: center; gap: 36px; }
   gap: 60px;
   align-items: center;
 }
+.vibe .eyebrow { color: var(--amarillo); }
+.vibe .eyebrow::before { background: var(--amarillo); }
 .vibe-text { max-width: 520px; }
 .vibe h2 {
   font-family: var(--f-display);
@@ -1063,15 +1105,20 @@ footer {
   .bowls { padding-top: clamp(60px, 10vw, 100px); }
   .bowls-head { grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
   .bowls h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
-  .bowl-tabs { gap: 4px; padding: 0 5vw; margin-bottom: 20px; }
+  .bowl-tabs { gap: 4px; padding: 0 5vw; margin-bottom: 8px; }
+  .bowl-tabs-hint { display: block; }
   .bowl-tab { font-size: 1.5rem; padding: 10px 12px; }
-  .bowl-stage { grid-template-columns: 1fr; gap: 24px; padding: 40px 5vw 70px; }
+  .bowl-stage {
+    grid-template-columns: 1fr; gap: 24px; padding: 40px 5vw 30px;
+    touch-action: pan-y;
+  }
   .bowl-info { order: 2; }
   .bowl-img { order: 1; max-width: 60%; margin: 0 auto; }
   .bowl-info h3 { font-size: clamp(2.4rem, 10vw, 3.6rem); margin-bottom: 18px; }
   .bowl-info .tagline { font-size: 1rem; margin-bottom: 24px; }
   .bowl-ings { max-width: none; margin-bottom: 28px; }
   .bowl-prices { max-width: none; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .bowl-dots { display: flex; }
 
   /* — Make it yours — */
   .miy { padding: clamp(60px, 10vw, 100px) 5vw; }

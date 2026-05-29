@@ -42,14 +42,6 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
         <img src="/assets/logo-full-white.png" alt="Açaí Paradise" className="brand-full brand-full--light" height={36} />
         <img src="/assets/logo-full-blue.png" alt="" className="brand-full brand-full--dark" height={36} aria-hidden="true" />
       </a>
-      <button
-        className={`menu-toggle${menuOpen ? ' open' : ''}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Abrir menú"
-        aria-expanded={menuOpen}
-      >
-        <span /><span /><span />
-      </button>
       <nav>
         <ul className="nav-links">
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
@@ -65,6 +57,14 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
         </ul>
         <a href={`${prefix}#tiendas`} className="cta-find" onClick={(e) => navTo(e, '#tiendas')}>Encuéntranos <span aria-hidden="true">→</span></a>
       </nav>
+      <button
+        className={`menu-toggle${menuOpen ? ' open' : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Abrir menú"
+        aria-expanded={menuOpen}
+      >
+        <span /><span /><span />
+      </button>
     </header>
   );
 }

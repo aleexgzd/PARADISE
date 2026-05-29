@@ -25,12 +25,6 @@ const reviews = [
   },
 ];
 
-const highlights = [
-  { name: 'Raquel Villén', quote: 'Cada vez que paseo por Granada, merienda imprescindible y trato exquisito.' },
-  { name: 'Luciiaa', quote: 'La relación calidad-precio es bastante buena y no escatiman en ingredientes.' },
-  { name: 'Nieves Albarrán', quote: 'A cuál más majo y simpático, trabajan súper eficaces y limpios.' },
-];
-
 export default function Reviews() {
   return (
     <section className="reviews" id="resenas" aria-label="Reseñas de clientes en Google">
@@ -64,15 +58,6 @@ export default function Reviews() {
               <div><strong>{r.name}</strong><small>{r.time}</small></div>
             </div>
           </article>
-        ))}
-      </div>
-
-      <div className="reviews-highlights reveal d2">
-        {highlights.map((h) => (
-          <div key={h.name} className="highlight-chip">
-            <span className="highlight-quote">"{h.quote}"</span>
-            <span className="highlight-name">— {h.name}</span>
-          </div>
         ))}
       </div>
 

@@ -5,7 +5,7 @@ export default function Vibe() {
     <section className="vibe" id="experiencia">
       <div className="vibe-grid">
         <div className="vibe-text">
-          <span className="eyebrow reveal" style={{ color: 'var(--amarillo)' }}>El plan</span>
+          <span className="eyebrow reveal">El plan</span>
           <h2 className="reveal d1">Cómo es venir a <BrandName /></h2>
           <p className="lead reveal d2">No hace falta inventarse un plan.</p>
           <p className="reveal d2">Vienes. Pides. Te sientas.</p>

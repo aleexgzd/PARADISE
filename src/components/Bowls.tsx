@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import BrandName from './BrandName';
 
 interface Bowl {
@@ -60,13 +60,40 @@ const keys = Object.keys(bowls);
 export default function Bowls() {
   const [active, setActive] = useState('paradise');
   const [fadeKey, setFadeKey] = useState(0);
+  const touchRef = useRef<{ startX: number; startY: number } | null>(null);
 
   const select = useCallback((key: string) => {
     setActive(key);
     setFadeKey((k) => k + 1);
   }, []);
 
+  const goNext = useCallback(() => {
+    const idx = keys.indexOf(active);
+    if (idx < keys.length - 1) select(keys[idx + 1]);
+  }, [active, select]);
+
+  const goPrev = useCallback(() => {
+    const idx = keys.indexOf(active);
+    if (idx > 0) select(keys[idx - 1]);
+  }, [active, select]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchRef.current = { startX: e.touches[0].clientX, startY: e.touches[0].clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchRef.current) return;
+    const dx = e.changedTouches[0].clientX - touchRef.current.startX;
+    const dy = e.changedTouches[0].clientY - touchRef.current.startY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) goNext();
+      else goPrev();
+    }
+    touchRef.current = null;
+  };
+
   const b = bowls[active];
+  const activeIdx = keys.indexOf(active);
 
   return (
     <section className="bowls" id="bowls" aria-label="Nuestros bowls">
@@ -95,8 +122,14 @@ export default function Bowls() {
           );
         })}
       </div>
+      <div className="bowl-tabs-hint" aria-hidden="true">Desliza para ver todos →</div>
 
-      <div className="bowl-stage" id="bowlStage">
+      <div
+        className="bowl-stage"
+        id="bowlStage"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="bowl-info">
           <div className="num">{b.num}</div>
           <h3>{b.nameJsx ? <BrandName /> : b.name}</h3>
@@ -117,6 +150,18 @@ export default function Bowls() {
         <div className="bowl-img fade-in" key={fadeKey}>
           <img src={b.img} alt={b.alt} width={560} height={560} loading="lazy" decoding="async" />
         </div>
+      </div>
+
+      <div className="bowl-dots" aria-hidden="true">
+        {keys.map((key, i) => (
+          <button
+            key={key}
+            className={`bowl-dot${i === activeIdx ? ' active' : ''}`}
+            onClick={() => select(key)}
+            aria-label={bowls[key].name}
+          />
+        ))}
+        <span className="bowl-swipe-hint">← Desliza →</span>
       </div>
     </section>
   );
