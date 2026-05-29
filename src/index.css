@@ -89,7 +89,7 @@ nav { display: flex; align-items: center; gap: 36px; }
 }
 .nav-links a:hover::after { width: 100%; }
 .cta-find {
-  background: var(--amarillo); color: var(--negro);
+  background: var(--blanco); color: var(--azul);
   padding: 11px 22px; border-radius: 999px;
   font-weight: 600; font-size: 0.9rem;
   display: inline-flex; align-items: center; gap: 6px;
@@ -338,7 +338,7 @@ nav { display: flex; align-items: center; gap: 36px; }
   font-size: clamp(2.6rem, 7vw, 6.5rem);
   line-height: 0.88; letter-spacing: -0.005em;
 }
-.bowls h2 .acc { color: var(--amarillo); }
+.bowls h2 .acc { color: var(--azul); }
 .bowls-head p {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   opacity: 0.85; max-width: 40ch;
