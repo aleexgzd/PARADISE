@@ -46,7 +46,7 @@ export default function Stores() {
               <div className="store-map">
                 <iframe
                   title="Mapa de Açaí Paradise Granada"
-                  src="https://www.google.com/maps?q=A%C3%A7a%C3%AD+Paradise+Granada&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.928061797072!2d-3.604120423066428!3d37.17818054629999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fd5c3364ef13%3A0x23bfe4611f5c77c1!2sA%C3%A7a%C3%AD%20Paradise%20Granada!5e0!3m2!1ses!2ses!4v1780853789761!5m2!1ses!2ses"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
@@ -89,7 +89,7 @@ export default function Stores() {
               <div className="store-map">
                 <iframe
                   title="Mapa de Açaí Paradise Sevilla"
-                  src="https://www.google.com/maps?q=A%C3%A7a%C3%AD+Paradise+Sevilla&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.9019865034716!2d-5.992112923060678!3d37.39215013410679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d4ad4f39085%3A0xc0d0e659321c5f53!2sA%C3%A7a%C3%AD%20Paradise%20Sevilla!5e0!3m2!1ses!2ses!4v1780853809556!5m2!1ses!2ses"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
