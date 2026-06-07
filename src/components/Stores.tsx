@@ -43,6 +43,15 @@ export default function Stores() {
                   </a>
                 </div>
               </div>
+              <div className="store-map">
+                <iframe
+                  title="Mapa de Açaí Paradise Granada"
+                  src="https://www.google.com/maps?q=A%C3%A7a%C3%AD+Paradise+Granada&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </article>
           <article className="store reveal d1">
@@ -76,6 +85,15 @@ export default function Stores() {
                     <img src="/assets/ubereats.svg" alt="Uber Eats" width={36} height={36} />
                   </a>
                 </div>
+              </div>
+              <div className="store-map">
+                <iframe
+                  title="Mapa de Açaí Paradise Sevilla"
+                  src="https://www.google.com/maps?q=A%C3%A7a%C3%AD+Paradise+Sevilla&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
           </article>

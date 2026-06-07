@@ -19,7 +19,7 @@ const bowls: Record<string, Bowl> = {
     tag: 'El que da nombre. Cremoso, con fresa, plátano y arándano. Empieza por aquí.',
     ings: ['açaí', 'granola crunchy', 'crema paradise', 'yogurt', 'leche en polvo', 'fresa', 'plátano', 'arándano'],
     img: '/assets/3282a8d90e.webp',
-    alt: 'Bowl Paradise',
+    alt: 'Bowl Paradise de açaí con fresa, plátano, arándano y granola crunchy',
   },
   brasil: {
     num: '02 / 05',
@@ -27,7 +27,7 @@ const bowls: Record<string, Bowl> = {
     tag: 'Plátano, crema de cacahuete y leche condensada. La receta brasileña de toda la vida. Si no lo has probado, no sabes lo que te pierdes.',
     ings: ['açaí', 'granola 0% azúcar', 'crema cacahuete', 'leche condensada', 'leche en polvo', 'plátano'],
     img: '/assets/d02aecb644.webp',
-    alt: 'Bowl Brasil',
+    alt: 'Bowl Brasil de açaí con plátano, crema de cacahuete y leche condensada',
   },
   tropical: {
     num: '03 / 05',
@@ -35,7 +35,7 @@ const bowls: Record<string, Bowl> = {
     tag: 'Piña, mango, kiwi y crema de maracuyá. El más fresco de la carta. Y el que más fotos se lleva.',
     ings: ['açaí', 'granola crunchy', 'crema de maracuyá', 'pudding de chía', 'piña', 'mango', 'kiwi'],
     img: '/assets/f8036b505a.webp',
-    alt: 'Bowl Tropical',
+    alt: 'Bowl Tropical de açaí con piña, mango, kiwi y crema de maracuyá',
   },
   dulce: {
     num: '04 / 05',
@@ -43,7 +43,7 @@ const bowls: Record<string, Bowl> = {
     tag: 'Granola de chocolate, choco avellana, galleta lotus y leche condensada. Postre disfrazado de bowl.',
     ings: ['açaí', 'granola chocolate', 'choco avellana', 'galleta lotus', 'leche condensada', 'fresa', 'plátano'],
     img: '/assets/4b48c37e1d.webp',
-    alt: 'Bowl Dulce',
+    alt: 'Bowl Dulce de açaí con granola de chocolate, choco avellana y galleta lotus',
   },
   fit: {
     num: '05 / 05',
@@ -51,7 +51,7 @@ const bowls: Record<string, Bowl> = {
     tag: 'Granola 0%, proteína, crema de cacahuete, chía y fruta. El que no parece fit y lo es.',
     ings: ['açaí', 'granola 0%', 'crema cacahuete', 'pudding chía', 'proteína', 'fresa', 'plátano'],
     img: '/assets/0ff0669d17.webp',
-    alt: 'Bowl Fit',
+    alt: 'Bowl Fit de açaí con granola 0%, proteína, crema de cacahuete y chía',
   },
 };
 

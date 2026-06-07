@@ -1,3 +1,5 @@
+import CountUp from './CountUp';
+
 const reviews = [
   {
     quote: 'Fuimos ayer por primera vez y nos encantó la experiencia. Había bastante gente, pero aun así las chicas tuvieron muchísima paciencia con nosotras, nos explicaron todo súper bien y nos ayudaron a elegir sin ningún problema. Se nota que atienden con ganas y muy buen trato. Además, estaba todo buenísimo, el açaí súper rico y la fruta muy fresca. Sin duda volveremos :)',
@@ -35,12 +37,12 @@ export default function Reviews() {
         </div>
         <div className="score-pair reveal d2">
           <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener noreferrer" className="score">
-            <div className="score-num">4,8</div>
+            <CountUp value={4.8} className="score-num" />
             <div className="score-stars">★★★★★</div>
             <div className="score-info">429 reseñas · Granada</div>
           </a>
           <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener noreferrer" className="score">
-            <div className="score-num">4,9</div>
+            <CountUp value={4.9} className="score-num" />
             <div className="score-stars">★★★★★</div>
             <div className="score-info">73 reseñas · Sevilla</div>
           </a>
