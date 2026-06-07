@@ -24,10 +24,6 @@ export default function Stores() {
                 <meta itemProp="addressLocality" content="Granada" />
                 <meta itemProp="addressCountry" content="ES" />
               </p>
-              <p className="store-hours">
-                <span className="day">Lunes a viernes</span> · 10:00 — 22:00<br />
-                <span className="day">Sábados y domingos</span> · 16:00 — 22:00
-              </p>
               <div className="store-ctas">
                 <a href="https://maps.app.goo.gl/zxZtzb7L4WeUQ8XV6" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Granada" className="btn btn-blue">Trabaja con nosotros</a>
@@ -67,9 +63,6 @@ export default function Stores() {
                 <span itemProp="streetAddress">Plaza Cristo de Burgos, 9</span>
                 <meta itemProp="addressLocality" content="Sevilla" />
                 <meta itemProp="addressCountry" content="ES" />
-              </p>
-              <p className="store-hours">
-                <span className="day">Todos los días</span> · 16:00 — 22:00
               </p>
               <div className="store-ctas">
                 <a href="https://maps.app.goo.gl/gFLrE63PyDLXMheS9" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>

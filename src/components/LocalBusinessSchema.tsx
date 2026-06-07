@@ -54,10 +54,6 @@ const schema = {
       },
       geo: { '@type': 'GeoCoordinates', latitude: 37.1773, longitude: -3.5986 },
       areaServed: { '@type': 'City', name: 'Granada' },
-      openingHoursSpecification: [
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '22:00' },
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '16:00', closes: '22:00' },
-      ],
       aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '429', bestRating: '5' },
       sameAs: socialLinks,
       parentOrganization: { '@id': 'https://acaiparadise.es/#org' },
@@ -85,9 +81,6 @@ const schema = {
       },
       geo: { '@type': 'GeoCoordinates', latitude: 37.3891, longitude: -5.9945 },
       areaServed: { '@type': 'City', name: 'Sevilla' },
-      openingHoursSpecification: [
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '16:00', closes: '22:00' },
-      ],
       aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '73', bestRating: '5' },
       sameAs: socialLinks,
       parentOrganization: { '@id': 'https://acaiparadise.es/#org' },
@@ -105,12 +98,12 @@ const schema = {
         {
           '@type': 'Question',
           name: '¿Dónde está Açaí Paradise en Granada?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Estamos en Plaza de la Universidad, 1, en pleno centro de Granada. Abrimos de lunes a viernes de 10:00 a 22:00 y fines de semana de 16:00 a 22:00.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Estamos en Plaza de la Universidad, 1, en pleno centro de Granada. Consulta el horario actualizado en nuestra ficha de Google Maps.' },
         },
         {
           '@type': 'Question',
           name: '¿Dónde está Açaí Paradise en Sevilla?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Nuestra tienda de Sevilla está en Plaza Cristo de Burgos, 9. Abrimos todos los días de 16:00 a 22:00.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Nuestra tienda de Sevilla está en Plaza Cristo de Burgos, 9. Consulta el horario actualizado en nuestra ficha de Google Maps.' },
         },
         {
           '@type': 'Question',
