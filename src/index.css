@@ -791,7 +791,7 @@ nav { display: flex; align-items: center; gap: 36px; }
   margin-bottom: 18px;
   line-height: 1;
 }
-.store-addr { font-size: 1rem; font-weight: 500; margin-bottom: 6px; }
+.store-addr { font-size: 1rem; font-weight: 500; margin-bottom: 24px; }
 .store-hours {
   font-size: 0.92rem;
   color: rgba(13,13,13,0.6);
