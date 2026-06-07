@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://acaiparadise.es/sitemap.xml
+Sitemap: https://www.acaiparadise.es/sitemap.xml
