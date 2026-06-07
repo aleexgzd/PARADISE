@@ -59,13 +59,20 @@ const keys = Object.keys(bowls);
 
 export default function Bowls() {
   const [active, setActive] = useState('paradise');
-  const [fadeKey, setFadeKey] = useState(0);
+  const [switching, setSwitching] = useState(false);
   const touchRef = useRef<{ startX: number; startY: number } | null>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
+  const pendingRef = useRef<string | null>(null);
 
   const select = useCallback((key: string) => {
-    setActive(key);
-    setFadeKey((k) => k + 1);
+    if (key === pendingRef.current) return;
+    pendingRef.current = key;
+    setSwitching(true);
+    setTimeout(() => {
+      setActive(key);
+      setSwitching(false);
+      pendingRef.current = null;
+    }, 250);
   }, []);
 
   const goNext = useCallback(() => {
@@ -140,8 +147,8 @@ export default function Bowls() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="bowl-img fade-in" key={fadeKey}>
-          <img src={b.img} alt={b.alt} width={560} height={560} loading="lazy" decoding="async" />
+        <div className={`bowl-img${switching ? ' switching' : ''}`}>
+          <img src={b.img} alt={b.alt} width={560} height={560} decoding="async" />
         </div>
         <div className="bowl-dots" aria-hidden="true">
           {keys.map((key, i) => (

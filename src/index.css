@@ -433,10 +433,12 @@ nav { display: flex; align-items: center; gap: 36px; }
   object-fit: contain;
   filter: drop-shadow(0 28px 50px rgba(0,0,0,0.32));
 }
-.bowl-img.fade-in img { animation: bowlIn 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-@keyframes bowlIn {
-  0%   { opacity: 0; transform: translateY(30px) scale(0.94); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+.bowl-img img {
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bowl-img.switching img {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 /* Bowl dots (mobile) */
@@ -1156,7 +1158,7 @@ footer {
     grid-template-columns: 1fr; gap: 0; padding: 20px 5vw 40px;
     touch-action: pan-y;
   }
-  .bowl-img { max-width: 60%; margin: 0 auto; }
+  .bowl-img { max-width: 60%; margin: 0 auto; aspect-ratio: 1; }
   .bowl-info h3 { font-size: clamp(2.4rem, 10vw, 3.6rem); margin-bottom: 18px; }
   .bowl-info .tagline { font-size: 1rem; margin-bottom: 24px; }
   .bowl-ings { max-width: none; margin-bottom: 28px; }
@@ -1216,7 +1218,7 @@ footer {
   /* — Franchise — */
   .franchise { min-height: auto; }
   .franchise-inner { grid-template-columns: 1fr; gap: 24px; padding: 60px 5vw; }
-  .franchise h2 { font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 18px; }
+  .franchise h2 { font-size: clamp(1.8rem, 6.5vw, 2.8rem); margin-bottom: 18px; word-break: break-word; overflow-wrap: break-word; }
   .franchise p { font-size: 1rem; }
   .franchise .ctas .btn { width: 100%; justify-content: center; }
 
@@ -1239,6 +1241,9 @@ footer {
    RESPONSIVE — SMALL MOBILE (≤ 560px)
    ============================================= */
 @media (max-width: 560px) {
+  /* Global: prevent text overflow on small screens */
+  h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
+
   .hero-ctas { flex-direction: column; width: 100%; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
   .hero-tag { font-size: 0.62rem; letter-spacing: 0.1em; }
@@ -1267,6 +1272,8 @@ footer {
   .footer-bottom div:last-child { display: flex; flex-direction: column; gap: 4px; }
   .word-chip { font-size: 0.88rem; padding: 8px 14px; }
   .ig-grid { gap: 8px; }
+  .franchise h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+  .franchise-inner { padding: 48px 5vw; }
 }
 /* LEGAL PAGES */
 .legal {
