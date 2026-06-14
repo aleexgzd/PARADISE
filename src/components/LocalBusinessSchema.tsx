@@ -108,7 +108,7 @@ const schema = {
         {
           '@type': 'Question',
           name: '¿Cuánto cuesta un bowl de açaí?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Los bowls empiezan desde 5 € (tamaño pequeño). Tenemos cuatro tamaños: pequeño (5 €), mediano (6,50 €), grande (7,90 €) y extra (9,90 €).' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Los bowls empiezan desde 5 € (tamaño mini). Tenemos cuatro tamaños: mini (5 €), pequeño (6,50 €), mediano (7,90 €) y grande (9,90 €).' },
         },
         {
           '@type': 'Question',

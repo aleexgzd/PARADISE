@@ -171,10 +171,10 @@ export default function Bowls() {
             ))}
           </div>
           <div className="bowl-prices">
-            <div><small>Pequeño</small><strong>5 €</strong></div>
-            <div><small>Mediano</small><strong>6,5 €</strong></div>
-            <div><small>Grande</small><strong>7,9 €</strong></div>
-            <div><small>Extra</small><strong>9,9 €</strong></div>
+            <div><small>Mini</small><strong>5 €</strong></div>
+            <div><small>Pequeño</small><strong>6,5 €</strong></div>
+            <div><small>Mediano</small><strong>7,9 €</strong></div>
+            <div><small>Grande</small><strong>9,9 €</strong></div>
           </div>
           <a href="#tiendas" className="btn btn-yellow">Pruébalo <span className="arrow">→</span></a>
         </div>
