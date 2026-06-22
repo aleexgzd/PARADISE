@@ -39,12 +39,12 @@ export default function Reviews() {
           <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener noreferrer" className="score">
             <CountUp value={4.8} className="score-num" />
             <div className="score-stars">★★★★★</div>
-            <div className="score-info">429 reseñas · Granada</div>
+            <div className="score-info">439 reseñas · Granada</div>
           </a>
           <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener noreferrer" className="score">
             <CountUp value={4.9} className="score-num" />
             <div className="score-stars">★★★★★</div>
-            <div className="score-info">73 reseñas · Sevilla</div>
+            <div className="score-info">85 reseñas · Sevilla</div>
           </a>
         </div>
       </div>

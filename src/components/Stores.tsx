@@ -24,6 +24,7 @@ export default function Stores() {
                 <meta itemProp="addressLocality" content="Granada" />
                 <meta itemProp="addressCountry" content="ES" />
               </p>
+              <a href="/granada" className="store-page-link" onClick={(e) => { e.preventDefault(); (window as any).__navigateTo('/granada'); }}>Açaí en Granada <span aria-hidden="true">→</span></a>
               <div className="store-ctas">
                 <a href="https://maps.app.goo.gl/zxZtzb7L4WeUQ8XV6" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Granada" className="btn btn-blue">Trabaja con nosotros</a>
@@ -64,6 +65,7 @@ export default function Stores() {
                 <meta itemProp="addressLocality" content="Sevilla" />
                 <meta itemProp="addressCountry" content="ES" />
               </p>
+              <a href="/sevilla" className="store-page-link" onClick={(e) => { e.preventDefault(); (window as any).__navigateTo('/sevilla'); }}>Açaí en Sevilla <span aria-hidden="true">→</span></a>
               <div className="store-ctas">
                 <a href="https://maps.app.goo.gl/gFLrE63PyDLXMheS9" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Cómo llegar <span className="arrow">→</span></a>
                 <a href="mailto:info@acaiparadise.es?subject=Trabaja con nosotros – Sevilla" className="btn btn-blue">Trabaja con nosotros</a>

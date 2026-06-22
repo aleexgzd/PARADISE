@@ -29,9 +29,9 @@ export default function Footer() {
         <div className="footer-col">
           <strong className="footer-heading">Tiendas</strong>
           <ul>
-            <li>Granada</li>
+            <li><a href="/granada" onClick={(e) => navigate(e, '/granada')}>Açaí en Granada</a></li>
             <li className="small">Plaza de la Universidad, 1</li>
-            <li style={{ marginTop: 6 }}>Sevilla</li>
+            <li style={{ marginTop: 6 }}><a href="/sevilla" onClick={(e) => navigate(e, '/sevilla')}>Açaí en Sevilla</a></li>
             <li className="small">Plaza Cristo de Burgos, 9</li>
           </ul>
         </div>

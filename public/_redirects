@@ -1,0 +1,4 @@
+# SPA fallback: las rutas sin asset (p. ej. /granada, /sevilla, /privacidad)
+# se sirven con index.html para que el router del cliente las resuelva.
+# Los assets reales (/assets/*, /sitemap.xml, /robots.txt...) tienen prioridad.
+/*    /index.html   200

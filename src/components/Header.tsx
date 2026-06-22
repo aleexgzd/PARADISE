@@ -47,13 +47,13 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
           <li><a href={`${prefix}#bowls`} onClick={(e) => navTo(e, '#bowls')}>Productos</a></li>
           <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
-          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Contacto</a></li>
+          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas</a></li>
         </ul>
         <ul className={`nav-mobile${menuOpen ? ' open' : ''}`}>
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
           <li><a href={`${prefix}#bowls`} onClick={(e) => navTo(e, '#bowls')}>Productos</a></li>
           <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
-          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Contacto</a></li>
+          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas</a></li>
           <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>A domicilio</a></li>
         </ul>
         <a href={`${prefix}#tiendas`} className="cta-find" onClick={(e) => navTo(e, '#tiendas')}>A domicilio <span aria-hidden="true">→</span></a>

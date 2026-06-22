@@ -17,11 +17,15 @@ import LocalBusinessSchema from './components/LocalBusinessSchema';
 import Privacidad from './pages/Privacidad';
 import Cookies from './pages/Cookies';
 import AvisoLegal from './pages/AvisoLegal';
+import CityPage from './pages/CityPage';
+import { GRANADA, SEVILLA } from './pages/cityData';
 
-type Page = 'home' | 'privacidad' | 'cookies' | 'aviso-legal';
+type Page = 'home' | 'granada' | 'sevilla' | 'privacidad' | 'cookies' | 'aviso-legal';
 
 function getPage(): Page {
   const path = window.location.pathname;
+  if (path === '/granada') return 'granada';
+  if (path === '/sevilla') return 'sevilla';
   if (path === '/privacidad') return 'privacidad';
   if (path === '/cookies') return 'cookies';
   if (path === '/aviso-legal') return 'aviso-legal';
@@ -73,6 +77,8 @@ export default function App() {
     <>
       <Header forceScrolled={page !== 'home'} />
       {page === 'home' && <HomePage />}
+      {page === 'granada' && <CityPage city={GRANADA} />}
+      {page === 'sevilla' && <CityPage city={SEVILLA} />}
       {page === 'privacidad' && <Privacidad />}
       {page === 'cookies' && <Cookies />}
       {page === 'aviso-legal' && <AvisoLegal />}
