@@ -11,10 +11,10 @@ export default function Stores() {
         </div>
         <div className="stores-grid">
           <article className="store reveal">
-            <div className="store-visual">
+            <a className="store-visual" href="/granada" onClick={(e) => { e.preventDefault(); (window as any).__navigateTo('/granada'); }} aria-label="Ver la página de Açaí Paradise Granada">
               <img src="/assets/837abd8c6f.webp" alt="Fachada de la tienda Açaí Paradise en Granada con su toldo azul" loading="lazy" />
               <span className="city-tag">Granada</span>
-            </div>
+            </a>
             <div className="store-body" itemScope itemType="https://schema.org/Restaurant">
               <meta itemProp="name" content="Açaí Paradise Granada" />
               <div className="store-num">01 · Origen</div>
@@ -52,10 +52,10 @@ export default function Stores() {
             </div>
           </article>
           <article className="store reveal d1">
-            <div className="store-visual">
+            <a className="store-visual" href="/sevilla" onClick={(e) => { e.preventDefault(); (window as any).__navigateTo('/sevilla'); }} aria-label="Ver la página de Açaí Paradise Sevilla">
               <img src="/assets/144c64bb4a.webp" alt="Bowl Paradise sostenido contra el atardecer en una calle de Sevilla" loading="lazy" />
               <span className="city-tag">Sevilla</span>
-            </div>
+            </a>
             <div className="store-body" itemScope itemType="https://schema.org/Restaurant">
               <meta itemProp="name" content="Açaí Paradise Sevilla" />
               <div className="store-num">02 · Nuevo</div>
