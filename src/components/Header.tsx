@@ -5,15 +5,21 @@ interface HeaderProps {
 }
 
 export default function Header({ forceScrolled = false }: HeaderProps) {
-  const [scrolled, setScrolled] = useState(forceScrolled);
+  const [scrolledByScroll, setScrolledByScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (forceScrolled) { setScrolled(true); return; }
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    if (forceScrolled) return;
+    const onScroll = () => setScrolledByScroll(window.scrollY > 30);
+    onScroll(); // estado inicial correcto al montar / volver a la home
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [forceScrolled]);
+
+  // En páginas que no son la home (Granada, Sevilla, blog...) el header va
+  // siempre fijo. forceScrolled gana de inmediato en cada render, así que no
+  // hay frame transitorio ni efecto de aparición al navegar/scrollear.
+  const scrolled = forceScrolled || scrolledByScroll;
 
   const closeMenu = () => setMenuOpen(false);
 
