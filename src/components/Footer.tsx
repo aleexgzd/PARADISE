@@ -22,6 +22,7 @@ export default function Footer() {
           <ul>
             <li><a href="#manifiesto">Quiénes somos</a></li>
             <li><a href="#bowls">Productos</a></li>
+            <li><a href="/blog" onClick={(e) => navigate(e, '/blog')}>Blog</a></li>
             <li><a href="#franquicias">Franquicias</a></li>
             <li><a href="#tiendas">Contacto</a></li>
           </ul>

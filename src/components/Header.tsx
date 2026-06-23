@@ -36,6 +36,12 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
     }
   };
 
+  const goPath = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    closeMenu();
+    (window as any).__navigateTo(path);
+  };
+
   return (
     <header id="hdr" className={scrolled ? 'scrolled' : ''}>
       <a href="/" className="brand" aria-label="Açaí Paradise — Inicio" onClick={goHome}>
@@ -46,14 +52,26 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
         <ul className="nav-links">
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
           <li><a href={`${prefix}#bowls`} onClick={(e) => navTo(e, '#bowls')}>Productos</a></li>
+          <li className="nav-dropdown">
+            <a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas <span className="nav-caret" aria-hidden="true">▾</span></a>
+            <ul className="nav-submenu">
+              <li><a href="/granada" onClick={(e) => goPath(e, '/granada')}>Granada</a></li>
+              <li><a href="/sevilla" onClick={(e) => goPath(e, '/sevilla')}>Sevilla</a></li>
+            </ul>
+          </li>
           <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
-          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas</a></li>
+          <li><a href="/blog" onClick={(e) => goPath(e, '/blog')}>Blog</a></li>
         </ul>
         <ul className={`nav-mobile${menuOpen ? ' open' : ''}`}>
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
           <li><a href={`${prefix}#bowls`} onClick={(e) => navTo(e, '#bowls')}>Productos</a></li>
+          <li className="nav-mobile-group">
+            <span className="nav-mobile-label">Tiendas</span>
+            <a className="nav-mobile-sub" href="/granada" onClick={(e) => goPath(e, '/granada')}>Granada</a>
+            <a className="nav-mobile-sub" href="/sevilla" onClick={(e) => goPath(e, '/sevilla')}>Sevilla</a>
+          </li>
           <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
-          <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas</a></li>
+          <li><a href="/blog" onClick={(e) => goPath(e, '/blog')}>Blog</a></li>
           <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>A domicilio</a></li>
         </ul>
         <a href={`${prefix}#tiendas`} className="cta-find" onClick={(e) => navTo(e, '#tiendas')}>A domicilio <span aria-hidden="true">→</span></a>
