@@ -23,16 +23,27 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // Suelta el foco del elemento pulsado. Sin esto, al navegar a través del
+  // desplegable "Tiendas" (Tiendas → Granada) el foco se queda dentro de
+  // .nav-dropdown y, como el header persiste entre páginas, el submenú se
+  // quedaría pegado abierto (:focus-within) tapando el menú en la página destino.
+  const dropFocus = (e: React.MouseEvent) => {
+    (e.currentTarget as HTMLElement).blur();
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+  };
+
   const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
   const prefix = isHome ? '' : '/';
 
   const goHome = (e: React.MouseEvent) => {
     e.preventDefault();
+    dropFocus(e);
     (window as any).__navigateTo('/');
   };
 
   const navTo = (e: React.MouseEvent, hash: string) => {
     closeMenu();
+    dropFocus(e);
     if (!isHome) {
       e.preventDefault();
       (window as any).__navigateTo('/');
@@ -45,6 +56,7 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
   const goPath = (e: React.MouseEvent, path: string) => {
     e.preventDefault();
     closeMenu();
+    dropFocus(e);
     (window as any).__navigateTo(path);
   };
 
