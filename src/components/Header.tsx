@@ -53,7 +53,7 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
           <li><a href={`${prefix}#manifiesto`} onClick={(e) => navTo(e, '#manifiesto')}>Quiénes somos</a></li>
           <li><a href={`${prefix}#bowls`} onClick={(e) => navTo(e, '#bowls')}>Productos</a></li>
           <li className="nav-dropdown">
-            <a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>Tiendas <span className="nav-caret" aria-hidden="true">▾</span></a>
+            <span className="nav-dropdown-toggle" aria-haspopup="true" tabIndex={0}>Tiendas <span className="nav-caret" aria-hidden="true">▾</span></span>
             <ul className="nav-submenu">
               <li><a href="/granada" onClick={(e) => goPath(e, '/granada')}>Granada</a></li>
               <li><a href="/sevilla" onClick={(e) => goPath(e, '/sevilla')}>Sevilla</a></li>

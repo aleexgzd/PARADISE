@@ -45,7 +45,7 @@ export default function BlogIndex() {
 
   return (
     <article className="blog-index">
-      <header className="blog-index-head">
+      <div className="blog-index-head">
         <div className="blog-post-inner">
           <nav className="city-crumbs blog-crumbs" aria-label="Migas de pan">
             <a href="/" onClick={(e) => nav(e, '/')}>Inicio</a>
@@ -56,7 +56,7 @@ export default function BlogIndex() {
           <h1>Todo sobre el <span className="acc">açaí</span></h1>
           <p>Qué es, dónde tomarlo en Granada y Sevilla, recetas, toppings y curiosidades. Sin postureo.</p>
         </div>
-      </header>
+      </div>
 
       <div className="blog-post-inner">
         <div className="blog-grid">
