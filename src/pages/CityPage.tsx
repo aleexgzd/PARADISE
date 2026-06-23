@@ -95,7 +95,9 @@ export default function CityPage({ city }: { city: CityData }) {
   return (
     <article className="city">
       {/* ---------- HERO ---------- */}
-      <header className="city-hero">
+      {/* <section>, NO <header>: un <header> heredaría position:fixed/z-index:100
+          de la regla global y taparía el menú real (#hdr). Igual que la home. */}
+      <section className="city-hero" aria-label={`Açaí Paradise ${city.city}`}>
         <div className="city-hero-bg">
           <img src={city.heroImg} alt={city.heroAlt} />
         </div>
@@ -128,7 +130,7 @@ export default function CityPage({ city }: { city: CityData }) {
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* ---------- INFO + MAPA ---------- */}
       <section className="city-info">
