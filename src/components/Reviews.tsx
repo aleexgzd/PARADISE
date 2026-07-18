@@ -1,4 +1,5 @@
 import CountUp from './CountUp';
+import { GRANADA, SEVILLA } from '../pages/cityData';
 
 const reviews = [
   {
@@ -36,16 +37,19 @@ export default function Reviews() {
           <h2 className="reveal d1">Fíate de ellos</h2>
         </div>
         <div className="score-pair reveal d2">
-          <a href="https://share.google/IXYaUPGBe4V8oAeAI" target="_blank" rel="noopener noreferrer" className="score">
-            <CountUp value={4.8} className="score-num" />
-            <div className="score-stars">★★★★★</div>
-            <div className="score-info">439 reseñas · Granada</div>
-          </a>
-          <a href="https://share.google/3jKJpQpucrMkYyPad" target="_blank" rel="noopener noreferrer" className="score">
-            <CountUp value={4.9} className="score-num" />
-            <div className="score-stars">★★★★★</div>
-            <div className="score-info">85 reseñas · Sevilla</div>
-          </a>
+          {[GRANADA, SEVILLA].map((c) => (
+            <a
+              key={c.slug}
+              href={c.reviewsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="score"
+            >
+              <CountUp value={Number(c.ratingValueSchema)} className="score-num" />
+              <div className="score-stars">★★★★★</div>
+              <div className="score-info">{c.reviewCount} reseñas · {c.city}</div>
+            </a>
+          ))}
         </div>
       </div>
 
