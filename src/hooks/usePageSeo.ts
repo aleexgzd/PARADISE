@@ -40,10 +40,11 @@ export function usePageSeo({ title, description, canonical, ogImage }: PageSeo) 
     setMeta('meta[property="og:url"]', 'content', canonical);
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
-    if (ogImage) {
-      setMeta('meta[property="og:image"]', 'content', ogImage);
-      setMeta('meta[name="twitter:image"]', 'content', ogImage);
-    }
+    // Siempre se fija: si la página no trae imagen propia, se vuelve a la de
+    // marca. Si no, hereda la de la página anterior (p. ej. /blog quedaba con
+    // la foto de la ciudad que se acababa de visitar).
+    setMeta('meta[property="og:image"]', 'content', ogImage ?? DEFAULTS.ogImage);
+    setMeta('meta[name="twitter:image"]', 'content', ogImage ?? DEFAULTS.ogImage);
 
     return () => {
       document.title = DEFAULTS.title;

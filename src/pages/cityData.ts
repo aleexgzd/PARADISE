@@ -45,9 +45,9 @@ export interface CityData {
 export const GRANADA: CityData = {
   slug: 'granada',
   city: 'Granada',
-  title: 'Açaí en Granada · Acai bowls en el centro | Açaí Paradise',
+  title: 'Açaí para llevar en Granada centro · Bowls desde 5 €',
   description:
-    'Açaí en Granada centro (Plaza de la Universidad, 1). Acai bowls cremosos, smoothies y fruta fresca del día. Desde 5 €. En tienda o a domicilio por Glovo y Uber Eats.',
+    'Acai bowls cremosos en Granada centro, Plaza de la Universidad 1. Fruta fresca del día y +15 toppings. Desde 5 €. 4,8★ con 448 reseñas. Para llevar o a domicilio.',
   canonical: 'https://www.acaiparadise.es/granada',
   eyebrow: 'Açaí Paradise · Granada',
   h1Lead: 'Açaí en',
@@ -68,7 +68,7 @@ export const GRANADA: CityData = {
   uber: 'https://www.ubereats.com/es/store/acai-paradise/Oo67PqodW6OgC13K_QBBXQ',
   rating: '4,8',
   ratingValueSchema: '4.8',
-  reviewCount: '439',
+  reviewCount: '448',
   reviewsLink: 'https://share.google/IXYaUPGBe4V8oAeAI',
   heroImg: '/assets/acai-granada-hero.jpg',
   heroAlt: 'Acai bowl en la mano con el rótulo azul de Açaí Paradise Granada al fondo',
@@ -103,9 +103,9 @@ export const GRANADA: CityData = {
 export const SEVILLA: CityData = {
   slug: 'sevilla',
   city: 'Sevilla',
-  title: 'Açaí en Sevilla · Acai bowls en el centro | Açaí Paradise',
+  title: 'Açaí para llevar en Sevilla centro · Bowls desde 5 €',
   description:
-    'Açaí en Sevilla centro (Plaza Cristo de Burgos, 9). Acai bowls cremosos, smoothies y fruta fresca del día. Desde 5 €. En tienda o a domicilio por Glovo y Uber Eats.',
+    'Acai bowls cremosos en Sevilla centro, Plaza Cristo de Burgos 9, junto a la Alfalfa. Fruta fresca del día y +15 toppings. Desde 5 €. 4,9★. Para llevar o a domicilio.',
   canonical: 'https://www.acaiparadise.es/sevilla',
   eyebrow: 'Açaí Paradise · Sevilla',
   h1Lead: 'Açaí en',
@@ -116,7 +116,7 @@ export const SEVILLA: CityData = {
   ],
   storeName: 'Açaí Paradise Sevilla',
   streetAddress: 'Plaza Cristo de Burgos, 9',
-  postalCode: '41004',
+  postalCode: '41003',
   zona: 'En el centro de Sevilla, en la Plaza Cristo de Burgos, junto a la Alfalfa y a un paso de la Encarnación (Las Setas).',
   mapsLink: 'https://maps.app.goo.gl/gFLrE63PyDLXMheS9',
   mapEmbed:
@@ -126,7 +126,7 @@ export const SEVILLA: CityData = {
   uber: 'https://www.ubereats.com/es/store/acai-paradise-sevilla/FcgQBm3mXd67qH1DO9gu4w',
   rating: '4,9',
   ratingValueSchema: '4.9',
-  reviewCount: '85',
+  reviewCount: '105',
   reviewsLink: 'https://share.google/3jKJpQpucrMkYyPad',
   heroImg: '/assets/acai-sevilla-hero.jpg',
   heroAlt: 'Acai bowl con galleta lotus recién montado en Açaí Paradise Sevilla',

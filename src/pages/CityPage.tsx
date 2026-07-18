@@ -99,7 +99,14 @@ export default function CityPage({ city }: { city: CityData }) {
           de la regla global y taparía el menú real (#hdr). Igual que la home. */}
       <section className="city-hero" aria-label={`Açaí Paradise ${city.city}`}>
         <div className="city-hero-bg">
-          <img src={city.heroImg} alt={city.heroAlt} />
+          <img
+            src={city.heroImg}
+            alt={city.heroAlt}
+            width={1600}
+            height={1066}
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
         <div className="city-hero-inner">
           <nav className="city-crumbs" aria-label="Migas de pan">

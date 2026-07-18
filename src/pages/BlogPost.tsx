@@ -78,6 +78,19 @@ export default function BlogPost() {
     return () => { document.getElementById('blog-schema')?.remove(); };
   }, [post]);
 
+  // Cloudflare Pages sirve el catch-all con HTTP 200, así que una URL de post
+  // inexistente sería un soft 404 indexable. Marcamos noindex mientras se
+  // muestre el "no encontrado".
+  useEffect(() => {
+    if (post) return;
+    const tag = document.createElement('meta');
+    tag.name = 'robots';
+    tag.content = 'noindex, follow';
+    tag.id = 'blog-noindex';
+    document.head.appendChild(tag);
+    return () => { document.getElementById('blog-noindex')?.remove(); };
+  }, [post]);
+
   if (!post) {
     return (
       <article className="blog-post">
@@ -112,7 +125,7 @@ export default function BlogPost() {
       </div>
 
       <div className="blog-post-hero">
-        <img src={post.heroImg} alt={post.heroAlt} />
+        <img src={post.heroImg} alt={post.heroAlt} fetchPriority="high" decoding="async" />
       </div>
 
       <div className="blog-post-inner blog-post-body">
