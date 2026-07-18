@@ -25,8 +25,7 @@ import CookieBanner from './components/CookieBanner';
 
 type Page = 'home' | 'granada' | 'sevilla' | 'blog' | 'blogpost' | 'privacidad' | 'cookies' | 'aviso-legal';
 
-function getPage(): Page {
-  const path = window.location.pathname;
+function getPage(path: string): Page {
   if (path === '/granada') return 'granada';
   if (path === '/sevilla') return 'sevilla';
   if (path === '/blog') return 'blog';
@@ -61,19 +60,24 @@ function HomePage() {
 }
 
 export default function App() {
-  const [page, setPage] = useState<Page>(getPage);
+  // El estado guarda la ruta completa, no el tipo de página. Si guardara solo
+  // el tipo, al ir de un post del blog a otro el valor seguiría siendo
+  // 'blogpost', React descartaría la actualización y el lector se quedaría
+  // viendo el artículo anterior con la URL ya cambiada.
+  const [path, setPath] = useState<string>(() => window.location.pathname);
+  const page = getPage(path);
 
   useEffect(() => {
-    const onPop = () => setPage(getPage());
+    const onPop = () => setPath(window.location.pathname);
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   // Expose navigate function for footer links
   useEffect(() => {
-    (window as any).__navigateTo = (path: string) => {
-      window.history.pushState({}, '', path);
-      setPage(getPage());
+    (window as any).__navigateTo = (to: string) => {
+      window.history.pushState({}, '', to);
+      setPath(to);
       window.scrollTo(0, 0);
     };
   }, []);
@@ -85,7 +89,9 @@ export default function App() {
       {page === 'granada' && <CityPage city={GRANADA} />}
       {page === 'sevilla' && <CityPage city={SEVILLA} />}
       {page === 'blog' && <BlogIndex />}
-      {page === 'blogpost' && <BlogPost />}
+      {/* key por ruta: fuerza el remontaje al cambiar de artículo, para que se
+          recalculen slug, <head> y JSON-LD en lugar de conservar los del anterior. */}
+      {page === 'blogpost' && <BlogPost key={path} />}
       {page === 'privacidad' && <Privacidad />}
       {page === 'cookies' && <Cookies />}
       {page === 'aviso-legal' && <AvisoLegal />}
