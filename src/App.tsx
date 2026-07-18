@@ -21,6 +21,7 @@ import CityPage from './pages/CityPage';
 import { GRANADA, SEVILLA } from './pages/cityData';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
+import CookieBanner from './components/CookieBanner';
 
 type Page = 'home' | 'granada' | 'sevilla' | 'blog' | 'blogpost' | 'privacidad' | 'cookies' | 'aviso-legal';
 
@@ -89,6 +90,7 @@ export default function App() {
       {page === 'cookies' && <Cookies />}
       {page === 'aviso-legal' && <AvisoLegal />}
       <Footer />
+      <CookieBanner />
     </>
   );
 }

@@ -6,6 +6,28 @@
     <meta name="theme-color" content="#416FE4" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Consent Mode v2: por defecto DENEGADO. Debe ir ANTES de GTM.
+         Si el usuario ya aceptó en una visita previa, arranca concedido para no
+         perder el primer pageview. El banner lo actualiza con 'consent update'. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function(){
+        var granted = false;
+        try { granted = localStorage.getItem('acai-cookies-v1') === 'accepted'; } catch (e) {}
+        var v = granted ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+          ad_storage: v,
+          ad_user_data: v,
+          ad_personalization: v,
+          analytics_storage: v,
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+      })();
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
