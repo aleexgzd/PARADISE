@@ -3,6 +3,7 @@ import type { CityData } from './cityData';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { useReveal } from '../hooks/useReveal';
 import { buildCitySchema } from '../seo/schemas';
+import Photo from '../components/Photo';
 
 export default function CityPage({ city }: { city: CityData }) {
   usePageSeo({
@@ -51,13 +52,13 @@ export default function CityPage({ city }: { city: CityData }) {
           de la regla global y taparía el menú real (#hdr). Igual que la home. */}
       <section className="city-hero" aria-label={`Açaí Paradise ${city.city}`}>
         <div className="city-hero-bg">
-          <img
+          <Photo
             src={city.heroImg}
             alt={city.heroAlt}
             width={1600}
             height={1066}
-            fetchPriority="high"
-            decoding="async"
+            priority
+            sizes="100vw"
           />
         </div>
         <div className="city-hero-inner">
@@ -134,7 +135,7 @@ export default function CityPage({ city }: { city: CityData }) {
           <div className="city-gallery-track" ref={galleryRef}>
             {city.gallery.map((g) => (
               <figure key={g.src}>
-                <img src={g.src} alt={g.alt} loading="lazy" />
+                <Photo src={g.src} alt={g.alt} sizes="(max-width: 700px) 85vw, 420px" />
               </figure>
             ))}
           </div>
