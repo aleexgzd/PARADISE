@@ -1,55 +1,10 @@
 import { useEffect } from 'react';
-import { POSTS_BY_SLUG, POSTS_BY_SLUG as BY, type BlogPost as Post } from './blogData';
+import { POSTS_BY_SLUG, POSTS_BY_SLUG as BY } from './blogData';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { useReveal } from '../hooks/useReveal';
+import { buildPostSchema } from '../seo/schemas';
 
 const SITE = 'https://www.acaiparadise.es';
-
-function buildSchema(p: Post) {
-  const url = `${SITE}/blog/${p.slug}`;
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'BlogPosting',
-        '@id': `${url}#article`,
-        headline: p.h1,
-        description: p.description,
-        datePublished: p.dateISO,
-        dateModified: p.dateISO,
-        articleSection: p.category,
-        image: `${SITE}${p.heroImg}`,
-        inLanguage: 'es',
-        mainEntityOfPage: url,
-        author: { '@type': 'Organization', name: 'Açaí Paradise', url: SITE },
-        publisher: {
-          '@type': 'Organization',
-          name: 'Açaí Paradise',
-          logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-full-blue.png` },
-        },
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE}/` },
-          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
-          { '@type': 'ListItem', position: 3, name: p.h1, item: url },
-        ],
-      },
-      ...(p.faq.length
-        ? [{
-            '@type': 'FAQPage',
-            '@id': `${url}#faq`,
-            mainEntity: p.faq.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          }]
-        : []),
-    ],
-  };
-}
 
 function nav(e: React.MouseEvent, path: string) {
   e.preventDefault();
@@ -70,11 +25,16 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (!post) return;
-    const tag = document.createElement('script');
-    tag.type = 'application/ld+json';
-    tag.id = 'blog-schema';
-    tag.textContent = JSON.stringify(buildSchema(post));
-    document.head.appendChild(tag);
+    // Igual que en CityPage: el HTML prerenderizado ya trae este script, así
+    // que lo reutilizamos en vez de añadir un segundo BlogPosting.
+    let tag = document.getElementById('blog-schema') as HTMLScriptElement | null;
+    if (!tag) {
+      tag = document.createElement('script');
+      tag.type = 'application/ld+json';
+      tag.id = 'blog-schema';
+      document.head.appendChild(tag);
+    }
+    tag.textContent = JSON.stringify(buildPostSchema(post));
     return () => { document.getElementById('blog-schema')?.remove(); };
   }, [post]);
 

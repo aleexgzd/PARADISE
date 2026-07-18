@@ -2,60 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { CityData } from './cityData';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { useReveal } from '../hooks/useReveal';
-
-function buildSchema(c: CityData) {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Restaurant',
-        '@id': `${c.canonical}#restaurant`,
-        name: c.storeName,
-        url: c.canonical,
-        image: `https://www.acaiparadise.es${c.heroImg}`,
-        email: 'info@acaiparadise.es',
-        servesCuisine: ['Açaí bowls', 'Smoothies', 'Bowls de fruta'],
-        priceRange: '€',
-        currenciesAccepted: 'EUR',
-        paymentAccepted: 'Efectivo, Tarjeta, Bizum',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: c.streetAddress,
-          addressLocality: c.city,
-          addressRegion: 'Andalucía',
-          postalCode: c.postalCode,
-          addressCountry: 'ES',
-        },
-        geo: { '@type': 'GeoCoordinates', latitude: c.geo.lat, longitude: c.geo.lng },
-        areaServed: { '@type': 'City', name: c.city },
-        hasMap: c.mapsLink,
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: c.ratingValueSchema,
-          reviewCount: c.reviewCount,
-          bestRating: '5',
-        },
-        sameAs: ['https://www.instagram.com/acaiparadise.es', 'https://www.tiktok.com/@acaiparadise.es'],
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.acaiparadise.es/' },
-          { '@type': 'ListItem', position: 2, name: c.city, item: c.canonical },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${c.canonical}#faq`,
-        mainEntity: c.faq.map((f) => ({
-          '@type': 'Question',
-          name: f.q,
-          acceptedAnswer: { '@type': 'Answer', text: f.a },
-        })),
-      },
-    ],
-  };
-}
+import { buildCitySchema } from '../seo/schemas';
 
 export default function CityPage({ city }: { city: CityData }) {
   usePageSeo({
@@ -70,11 +17,16 @@ export default function CityPage({ city }: { city: CityData }) {
 
   // Inyecta el JSON-LD específico de la ciudad y lo retira al salir
   useEffect(() => {
-    const tag = document.createElement('script');
-    tag.type = 'application/ld+json';
-    tag.id = 'city-schema';
-    tag.textContent = JSON.stringify(buildSchema(city));
-    document.head.appendChild(tag);
+    // El HTML prerenderizado ya trae este mismo script con id "city-schema".
+    // Si existe lo reutilizamos; crear otro dejaría el Restaurant duplicado.
+    let tag = document.getElementById('city-schema') as HTMLScriptElement | null;
+    if (!tag) {
+      tag = document.createElement('script');
+      tag.type = 'application/ld+json';
+      tag.id = 'city-schema';
+      document.head.appendChild(tag);
+    }
+    tag.textContent = JSON.stringify(buildCitySchema(city));
     return () => {
       document.getElementById('city-schema')?.remove();
     };
