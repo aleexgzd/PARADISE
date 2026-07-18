@@ -36,7 +36,7 @@ export const POSTS: BlogPost[] = [
     dateLabel: '22 de junio de 2026',
     category: 'El açaí',
     readMin: 4,
-    heroImg: '/assets/acai-granada-plaza.jpg',
+    heroImg: '/assets/acai-granada-plaza.webp',
     heroAlt: 'Acai bowl cremoso con fruta fresca recién montado',
     body: [
       { t: 'p', text: 'Si has llegado hasta aquí es porque has visto bowls de açaí por todas partes —en Instagram, por la calle, en la cola de algún sitio— y te preguntas qué es exactamente eso de color morado que lleva fruta encima. Te lo contamos claro y sin postureo.' },
@@ -78,7 +78,7 @@ export const POSTS: BlogPost[] = [
     dateLabel: '15 de junio de 2026',
     category: 'Granada',
     readMin: 3,
-    heroImg: '/assets/acai-granada-fachada.jpg',
+    heroImg: '/assets/acai-granada-fachada.webp',
     heroAlt: 'Local de Açaí Paradise en el centro de Granada con gente en la puerta',
     body: [
       { t: 'p', text: 'El açaí ha llegado para quedarse en Granada, y si buscas dónde tomarte un buen acai bowl en el centro, esta guía rápida es para ti.' },
@@ -117,7 +117,7 @@ export const POSTS: BlogPost[] = [
     dateLabel: '8 de junio de 2026',
     category: 'Sevilla',
     readMin: 3,
-    heroImg: '/assets/acai-sevilla-barra.jpg',
+    heroImg: '/assets/acai-sevilla-barra.webp',
     heroAlt: 'Mostrador de Açaí Paradise Sevilla para personalizar tu bowl',
     body: [
       { t: 'p', text: 'Si buscas dónde comer un buen acai bowl en Sevilla centro, te lo ponemos fácil con esta guía rápida.' },

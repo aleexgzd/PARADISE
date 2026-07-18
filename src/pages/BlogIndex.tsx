@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { POSTS } from './blogData';
 import { usePageSeo } from '../hooks/usePageSeo';
+import Photo from '../components/Photo';
 import { useReveal } from '../hooks/useReveal';
 
 const SITE = 'https://www.acaiparadise.es';
@@ -63,7 +64,7 @@ export default function BlogIndex() {
           {POSTS.map((p) => (
             <a key={p.slug} href={`/blog/${p.slug}`} onClick={(e) => nav(e, `/blog/${p.slug}`)} className="blog-card reveal">
               <div className="blog-card-img">
-                <img src={p.heroImg} alt={p.heroAlt} loading="lazy" />
+                <Photo src={p.heroImg} alt={p.heroAlt} sizes="(max-width: 700px) 90vw, 360px" />
                 <span className="blog-tag">{p.category}</span>
               </div>
               <div className="blog-card-body">

@@ -3,6 +3,7 @@ import { POSTS_BY_SLUG, POSTS_BY_SLUG as BY } from './blogData';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { useReveal } from '../hooks/useReveal';
 import { buildPostSchema } from '../seo/schemas';
+import Photo from '../components/Photo';
 
 const SITE = 'https://www.acaiparadise.es';
 
@@ -85,7 +86,7 @@ export default function BlogPost() {
       </div>
 
       <div className="blog-post-hero">
-        <img src={post.heroImg} alt={post.heroAlt} fetchPriority="high" decoding="async" />
+        <Photo src={post.heroImg} alt={post.heroAlt} priority sizes="100vw" />
       </div>
 
       <div className="blog-post-inner blog-post-body">
@@ -125,7 +126,7 @@ export default function BlogPost() {
             <div className="blog-related-grid">
               {related.map((r) => (
                 <a key={r.slug} href={`/blog/${r.slug}`} onClick={(e) => nav(e, `/blog/${r.slug}`)} className="blog-related-card">
-                  <img src={r.heroImg} alt={r.heroAlt} loading="lazy" />
+                  <Photo src={r.heroImg} alt={r.heroAlt} sizes="(max-width: 700px) 90vw, 360px" />
                   <div>
                     <span className="blog-tag">{r.category}</span>
                     <h3>{r.h1}</h3>
