@@ -8,12 +8,12 @@
  * de un enlace, Bing, rastreadores de IA, y Googlebot en su primera pasada— ve
  * únicamente el head genérico de la home.
  *
- * Qué hace: al terminar el build genera un index.html por ruta con su <head> ya
+ * Qué hace: al terminar el build genera un HTML por ruta con su <head> ya
  * resuelto y su JSON-LD embebido. El <body> sigue siendo el mismo contenedor
  * vacío que hidrata React, así que la app funciona exactamente igual.
  *
  * Cloudflare Pages sirve los archivos estáticos antes que el catch-all de
- * _redirects, así que /granada/index.html gana sobre /* -> /index.html.
+ * _redirects, así que granada.html gana sobre /* -> /index.html.
  *
  * Por qué es un plugin de Vite y no un script suelto: necesita importar datos
  * de archivos .ts (cityData, blogData, schemas). Un script de Node sólo puede
@@ -22,7 +22,7 @@
  * Vite la resolución de TS está garantizada.
  */
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import type { Plugin } from 'vite';
 
 import { GRANADA, SEVILLA } from './src/pages/cityData';
@@ -179,9 +179,16 @@ export default function prerenderHead(): Plugin {
           );
         }
 
-        const dir = join(dist, r.path);
-        await mkdir(dir, { recursive: true });
-        await writeFile(join(dir, 'index.html'), html, 'utf8');
+        // Se escribe como "<ruta>.html" y NO como "<ruta>/index.html".
+        //
+        // Con index.html dentro de una carpeta, Cloudflare trata la ruta como
+        // directorio y redirige /granada -> /granada/ con un 308. Eso metería
+        // un salto de redirección en URLs ya indexadas y dejaría el canonical
+        // (sin barra) apuntando a algo distinto de la URL final. Sirviendo
+        // granada.html, /granada responde 200 directamente.
+        const file = join(dist, `${r.path}.html`);
+        await mkdir(dirname(file), { recursive: true });
+        await writeFile(file, html, 'utf8');
         console.log(`  prerender  /${r.path}`);
       }
 
