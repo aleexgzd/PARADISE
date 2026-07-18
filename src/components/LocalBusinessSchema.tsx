@@ -54,7 +54,10 @@ const schema = {
       },
       geo: { '@type': 'GeoCoordinates', latitude: 37.1773, longitude: -3.5986 },
       areaServed: { '@type': 'City', name: 'Granada' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '448', bestRating: '5' },
+      // Sin aggregateRating a propósito: Google no admite reseñas
+      // autorreferenciales en LocalBusiness/Organization. No da estrellas y
+      // arriesga los rich snippets de FAQ y breadcrumbs. La valoración se
+      // muestra como contenido visible en la página, que sí es legítimo.
       sameAs: socialLinks,
       parentOrganization: { '@id': 'https://www.acaiparadise.es/#org' },
       hasMenu: menuSection,
@@ -81,7 +84,7 @@ const schema = {
       },
       geo: { '@type': 'GeoCoordinates', latitude: 37.3891, longitude: -5.9945 },
       areaServed: { '@type': 'City', name: 'Sevilla' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '105', bestRating: '5' },
+      // Ver nota en Granada: sin aggregateRating a propósito.
       sameAs: socialLinks,
       parentOrganization: { '@id': 'https://www.acaiparadise.es/#org' },
       hasMenu: menuSection,
