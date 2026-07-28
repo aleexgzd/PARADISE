@@ -126,7 +126,7 @@ export const SEVILLA: CityData = {
   uber: 'https://www.ubereats.com/es/store/acai-paradise-sevilla/FcgQBm3mXd67qH1DO9gu4w',
   rating: '4,9',
   ratingValueSchema: '4.9',
-  reviewCount: '105',
+  reviewCount: '110',
   reviewsLink: 'https://share.google/3jKJpQpucrMkYyPad',
   heroImg: '/assets/acai-sevilla-hero.webp',
   heroAlt: 'Acai bowl con galleta lotus recién montado en Açaí Paradise Sevilla',
