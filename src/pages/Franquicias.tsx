@@ -57,45 +57,65 @@ export default function Franquicias() {
   return (
     <article className="fr">
       {/* ---------- HERO ---------- */}
-      {/* <section>, no <header>: un <header> heredaría el position:fixed del menú. */}
+      {/* <section>, no <header>: un <header> heredaría el position:fixed del menú.
+          Capas, de fondo a frente: degradado de marca > foto fundida por la
+          izquierda > tinte y viñeta > grano > texto > sello giratorio. */}
       <section className="fr-hero" aria-label="Franquicia Açaí Paradise">
-        <div className="fr-wrap fr-hero-grid">
+        <div className="fr-hero-bg">
+          <Photo
+            src={F.heroImg}
+            alt={F.heroAlt}
+            width={1600}
+            height={1067}
+            priority
+            sizes="(max-width: 980px) 100vw, 66vw"
+          />
+        </div>
+        <div className="fr-hero-grain" aria-hidden="true" />
+
+        <div className="fr-badge" aria-hidden="true">
+          <svg viewBox="0 0 200 200" className="fr-badge-ring">
+            <defs>
+              <path id="fr-badge-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+            </defs>
+            <text>
+              <textPath href="#fr-badge-path" textLength="486" lengthAdjust="spacing">
+                FRANQUICIAS ABIERTAS · ANDALUCÍA Y TODA ESPAÑA ·
+              </textPath>
+            </text>
+          </svg>
+          <img src="/favicon.png" alt="" width={400} height={400} className="fr-badge-logo" />
+        </div>
+
+        <div className="fr-wrap fr-hero-in">
           <div className="fr-hero-text">
-            <nav className="fr-crumbs" aria-label="Migas de pan">
+            <nav className="fr-crumbs fr-anim" style={{ ['--i' as string]: 0 }} aria-label="Migas de pan">
               <a href="/" onClick={(e) => nav(e, '/')}>Inicio</a>
               <span aria-hidden="true">/</span>
               <span aria-current="page">Franquicias</span>
             </nav>
             <h1>
-              <span className="fr-kicker">Franquicia de açaí</span>
-              El paraíso cabe en un bowl. <span className="acc">¿Lo abrimos en tu ciudad?</span>
+              <span className="fr-kicker fr-anim" style={{ ['--i' as string]: 1 }}>Franquicia de açaí</span>
+              <span className="fr-h1-line fr-anim" style={{ ['--i' as string]: 2 }}>El paraíso cabe en un bowl.</span>
+              <span className="fr-h1-line acc fr-anim" style={{ ['--i' as string]: 3 }}>¿Lo abrimos en tu ciudad?</span>
             </h1>
-            <p className="fr-hero-sub">
+            <p className="fr-hero-sub fr-anim" style={{ ['--i' as string]: 4 }}>
               Un negocio de açaí para llevar, sin cocina ni salida de humos, probado en Granada y Sevilla. Antes de
               dar ningún paso te enseñamos el modelo, estudiamos tus números y vemos juntos cómo sería tu tienda.
             </p>
-            <div className="fr-hero-ctas">
+            <div className="fr-hero-ctas fr-anim" style={{ ['--i' as string]: 5 }}>
               <CtaInfo />
               <a href="#como-trabajamos" className="btn btn-ghost">Cómo trabajamos</a>
             </div>
-            <p className="fr-proof">
+            <p className="fr-proof fr-anim" style={{ ['--i' as string]: 6 }}>
               <span className="fr-stars" aria-hidden="true">★★★★★</span>
               {GRANADA.rating} en Granada · {SEVILLA.rating} en Sevilla · reseñas de Google
             </p>
           </div>
-          <figure className="fr-hero-media">
-            <Photo
-              src={F.heroImg}
-              alt={F.heroAlt}
-              width={1600}
-              height={1067}
-              priority
-              sizes="(max-width: 980px) 92vw, 560px"
-            />
-          </figure>
         </div>
-        <div className="fr-wrap">
-          <ul className="fr-pills" aria-label="Lo que ofrece el modelo">
+
+        <div className="fr-hero-foot">
+          <ul className="fr-wrap fr-pills" aria-label="Lo que ofrece el modelo">
             {F.pills.map((p) => <li key={p}>{p}</li>)}
           </ul>
         </div>
@@ -113,8 +133,8 @@ export default function Franquicias() {
           </div>
           <figure className="fr-photo fr-photo-land reveal d2">
             <Photo
-              src="/assets/franquicia-bowl-cola.webp"
-              alt="Bowl de açaí en la mano con clientes haciendo cola en la tienda al fondo"
+              src="/assets/franquicia-cola.webp"
+              alt="Cola de clientes en la puerta de la tienda Açaí Paradise de Granada"
               width={1600}
               height={1067}
               sizes="(max-width: 980px) 92vw, 50vw"
