@@ -50,8 +50,8 @@ export const FRANQUICIAS: FranquiciasData = {
   description:
     'Franquicia de açaí sin cocina ni salida de humos, probada en Granada y Sevilla. Sencilla de operar, con acompañamiento continuo. Pide información.',
   canonical: 'https://www.acaiparadise.es/franquicias',
-  heroImg: '/assets/franquicia-bowl-cola.webp',
-  heroAlt: 'Bowl de açaí en la mano con clientes haciendo cola al fondo en Açaí Paradise',
+  heroImg: '/assets/franquicia-cola.webp',
+  heroAlt: 'Cola de clientes en la puerta de la tienda Açaí Paradise de Granada',
 
   pills: [
     'Sin cocina ni salida de humos',
