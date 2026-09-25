@@ -133,7 +133,6 @@ export default function Franquicias() {
           />
           <span className="fr2-stamp" aria-hidden="true">Granada · desde 2024</span>
         </div>
-        <div className="fr-grain fr-grain--light" aria-hidden="true" />
         <div className="fr-wrap fr2-historia-in">
           <div className="fr2-historia-copy">
             <span className="eyebrow reveal">Nuestra historia</span>
@@ -209,7 +208,7 @@ export default function Franquicias() {
             <div className="fr2-perfiles">
               {F.perfiles.map((p, i) => (
                 <div className={`fr2-perfil-card fr2-perfil-card--${i === 0 ? 'a' : 'b'} reveal d${i + 2}`} key={p.title}>
-                  <span className="fr2-chip">{i === 0 ? 'Perfil operador' : 'Perfil inversor'}</span>
+                  <span className={`fr2-chip fr2-chip--${i === 0 ? 'kiwi' : 'pina'}`}>{i === 0 ? 'Perfil operador' : 'Perfil inversor'}</span>
                   <h3>{p.title}</h3>
                   <p>{p.text}</p>
                 </div>
@@ -221,10 +220,6 @@ export default function Franquicias() {
 
       {/* ---------- ACOMPAÑAMIENTO ---------- */}
       <section className="fr-section fr2-apoyo">
-        <div className="fr2-apoyo-bg" aria-hidden="true">
-          <Photo src="/assets/franquicia-preparacion.webp" alt="" width={1600} height={2400} sizes="50vw" />
-        </div>
-        <div className="fr-grain" aria-hidden="true" />
         <div className="fr-wrap fr2-apoyo-in">
           <div className="fr-head reveal">
             <span className="eyebrow">Qué incluye</span>
@@ -255,7 +250,7 @@ export default function Franquicias() {
             </p>
             <div className="fr2-sticker reveal d3">
               <p><strong>¿Ya tienes un local?</strong> Cuéntanoslo en tu primer mensaje y lo estudiamos desde la primera reunión.</p>
-              <CtaInfo className="btn btn-dark">Escríbenos</CtaInfo>
+              <CtaInfo className="btn btn-blue">Escríbenos</CtaInfo>
             </div>
           </div>
           <ol className="fr2-timeline">
@@ -309,7 +304,6 @@ export default function Franquicias() {
 
       {/* ---------- CTA FINAL ---------- */}
       <section className="fr-final" aria-label="Contacto para franquicias">
-        <div className="fr-grain fr-grain--final" aria-hidden="true" />
         <div className="fr-final-bg">
           <Photo
             src="/assets/franquicia-ciudad.webp"
