@@ -156,6 +156,19 @@ export default function CityPage({ city }: { city: CityData }) {
         </div>
       </section>
 
+      {/* ---------- TRABAJA CON NOSOTROS ---------- */}
+      <section className="city-jobs reveal" aria-label="Trabaja con nosotros">
+        <span className="city-eyebrow">Únete al equipo</span>
+        <h2>Trabaja con nosotros en {city.city}</h2>
+        <p>¿Te va el buen rollo, el trato cercano y el açaí bien hecho? Siempre nos gusta conocer gente para el equipo de {city.city}. Escríbenos con tu CV y cuéntanos un poco sobre ti.</p>
+        <a
+          href={`mailto:info@acaiparadise.es?subject=${encodeURIComponent(`Trabaja con nosotros — ${city.city}`)}`}
+          className="btn btn-blue"
+        >
+          Enviar mi CV <span className="arrow">→</span>
+        </a>
+      </section>
+
       {/* ---------- CTA FINAL ---------- */}
       <section className="city-final reveal">
         <h2>Te esperamos en {city.city}</h2>

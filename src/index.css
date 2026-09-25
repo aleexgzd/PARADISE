@@ -1435,7 +1435,7 @@ footer {
   max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 90px) 4vw;
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: start;
 }
-.city-info-text h2, .city-menu h2, .city-faq h2, .city-final h2 {
+.city-info-text h2, .city-menu h2, .city-faq h2, .city-jobs h2, .city-final h2 {
   font-family: var(--f-display); font-weight: 400;
   font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 0.95; margin-bottom: 20px; color: var(--negro);
 }
@@ -1502,6 +1502,10 @@ footer {
 .city-faq details p { padding: 0 0 20px; line-height: 1.6; color: rgba(13,13,13,0.8); margin: 0; }
 
 /* CTA final */
+.city-jobs { text-align: center; max-width: 720px; margin: 0 auto; padding: clamp(50px,7vw,80px) 4vw; }
+.city-jobs .city-eyebrow { color: var(--azul); }
+.city-jobs p { font-size: 1.05rem; line-height: 1.6; color: rgba(13,13,13,0.8); max-width: 52ch; margin: 0 auto 26px; }
+
 .city-final { text-align: center; padding: clamp(60px,9vw,110px) 4vw; background: var(--azul); color: var(--blanco); }
 .city-final h2 { color: var(--blanco); }
 .city-final p { font-family: var(--f-mono); letter-spacing: 0.05em; margin-bottom: 26px; opacity: 0.92; }
