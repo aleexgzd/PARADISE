@@ -13,9 +13,9 @@ function nav(e: React.MouseEvent, path: string) {
 
 /** Único punto de conversión: mailto con asunto y cuerpo preparados.
  *  `data-cta` sirve para medir los clics en GTM. */
-function CtaInfo({ children = 'Quiero información' }: { children?: React.ReactNode }) {
+function CtaInfo({ children = 'Quiero información', className = 'btn btn-yellow' }: { children?: React.ReactNode; className?: string }) {
   return (
-    <a href={F.mailto} className="btn btn-yellow" data-cta="franquicia">
+    <a href={F.mailto} className={className} data-cta="franquicia">
       {children} <span className="arrow" aria-hidden="true">→</span>
     </a>
   );
@@ -122,29 +122,32 @@ export default function Franquicias() {
       </section>
 
       {/* ---------- HISTORIA ---------- */}
-      <section className="fr-section fr-historia">
-        <div className="fr-wrap fr-split">
-          <div className="fr-copy">
+      <section className="fr2-historia">
+        <div className="fr2-historia-media reveal">
+          <Photo
+            src="/assets/franquicia-cola.webp"
+            alt="Cola de clientes en la puerta de la tienda Açaí Paradise de Granada"
+            width={1600}
+            height={1067}
+            sizes="(max-width: 980px) 100vw, 60vw"
+          />
+          <span className="fr2-stamp" aria-hidden="true">Granada · desde 2024</span>
+        </div>
+        <div className="fr-grain fr-grain--light" aria-hidden="true" />
+        <div className="fr-wrap fr2-historia-in">
+          <div className="fr2-historia-copy">
             <span className="eyebrow reveal">Nuestra historia</span>
             <h2 className="reveal d1">De una idea en Australia a una cola en la puerta</h2>
             <div className="reveal d2">
               {F.historia.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </div>
-          <figure className="fr-photo fr-photo-land reveal d2">
-            <Photo
-              src="/assets/franquicia-cola.webp"
-              alt="Cola de clientes en la puerta de la tienda Açaí Paradise de Granada"
-              width={1600}
-              height={1067}
-              sizes="(max-width: 980px) 92vw, 50vw"
-            />
-          </figure>
         </div>
       </section>
 
       {/* ---------- POR QUÉ FUNCIONA ---------- */}
-      <section className="fr-section fr-razones">
+      <section className="fr-section fr2-razones">
+        <div className="fr2-glow" aria-hidden="true" />
         <div className="fr-wrap">
           <div className="fr-head reveal">
             <span className="eyebrow">Por qué funciona</span>
@@ -154,28 +157,41 @@ export default function Franquicias() {
               detrás de ellos.
             </p>
           </div>
-          <div className="fr-cards">
+          <div className="fr2-razones-grid">
             {F.razones.map((r, i) => (
-              <div className={`fr-card reveal d${(i % 3) + 1}`} key={r.title}>
+              <article className={`fr2-razon reveal d${(i % 2) + 1}`} key={r.title}>
+                <span className="fr2-idx" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                 <h3>{r.title}</h3>
                 <p>{r.text}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ---------- LEMA ---------- */}
-      <section className="fr-quote" aria-label="El modelo en una frase">
-        <p className="reveal">
-          Sencillo de operar. Fácil de controlar. <span>Hecho para replicarse.</span>
-        </p>
+      {/* ---------- LEMA (cinta) ---------- */}
+      <section className="fr2-cinta" aria-label="El modelo en una frase">
+        <p className="sr-only">Sencillo de operar. Fácil de controlar. Hecho para replicarse.</p>
+        <div className="fr2-cinta-band" aria-hidden="true">
+          <div className="fr2-cinta-track">
+            {[0, 1].map((k) => (
+              <span className="fr2-cinta-set" key={k}>
+                <span>Sencillo de operar</span>
+                <img src="/favicon.png" alt="" width={400} height={400} />
+                <span>Fácil de controlar</span>
+                <img src="/favicon.png" alt="" width={400} height={400} />
+                <span className="acc">Hecho para replicarse</span>
+                <img src="/favicon.png" alt="" width={400} height={400} />
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ---------- PERFIL ---------- */}
-      <section className="fr-section fr-perfil">
-        <div className="fr-wrap fr-split fr-split--rev">
-          <figure className="fr-photo fr-photo-port reveal">
+      <section className="fr-section fr2-perfil">
+        <div className="fr-wrap fr2-perfil-grid">
+          <figure className="fr2-perfil-photo reveal">
             <Photo
               src="/assets/franquicia-clientes.webp"
               alt="Grupo de jóvenes saliendo de la tienda Açaí Paradise con sus bowls"
@@ -190,9 +206,10 @@ export default function Franquicias() {
             <p className="reveal d1">
               Hay dos maneras de tener un Açaí Paradise, y las dos funcionan. Lo importante es que encaje contigo.
             </p>
-            <div className="fr-perfiles">
+            <div className="fr2-perfiles">
               {F.perfiles.map((p, i) => (
-                <div className={`fr-perfil-card reveal d${i + 2}`} key={p.title}>
+                <div className={`fr2-perfil-card fr2-perfil-card--${i === 0 ? 'a' : 'b'} reveal d${i + 2}`} key={p.title}>
+                  <span className="fr2-chip">{i === 0 ? 'Perfil operador' : 'Perfil inversor'}</span>
                   <h3>{p.title}</h3>
                   <p>{p.text}</p>
                 </div>
@@ -203,16 +220,21 @@ export default function Franquicias() {
       </section>
 
       {/* ---------- ACOMPAÑAMIENTO ---------- */}
-      <section className="fr-section fr-apoyo">
-        <div className="fr-wrap">
+      <section className="fr-section fr2-apoyo">
+        <div className="fr2-apoyo-bg" aria-hidden="true">
+          <Photo src="/assets/franquicia-preparacion.webp" alt="" width={1600} height={2400} sizes="50vw" />
+        </div>
+        <div className="fr-grain" aria-hidden="true" />
+        <div className="fr-wrap fr2-apoyo-in">
           <div className="fr-head reveal">
             <span className="eyebrow">Qué incluye</span>
             <h2>No abres solo. Y no te quedas solo.</h2>
             <p>Te acompañamos para abrir y seguimos contigo mientras tu tienda crece.</p>
           </div>
-          <div className="fr-cards fr-cards--dark">
+          <div className="fr2-glass-grid">
             {F.apoyo.map((a, i) => (
-              <div className={`fr-card reveal d${(i % 3) + 1}`} key={a.title}>
+              <div className={`fr2-glass reveal d${(i % 3) + 1}`} key={a.title}>
+                <span className="fr2-glass-dot" aria-hidden="true" />
                 <h3>{a.title}</h3>
                 <p>{a.text}</p>
               </div>
@@ -222,37 +244,38 @@ export default function Franquicias() {
       </section>
 
       {/* ---------- PROCESO ---------- */}
-      <section className="fr-section fr-proceso" id="como-trabajamos">
-        <div className="fr-wrap">
-          <div className="fr-head reveal">
-            <span className="eyebrow">Cómo trabajamos</span>
-            <h2>Paso a paso, y con tus números delante</h2>
-            <p>
+      <section className="fr-section fr2-proceso" id="como-trabajamos">
+        <div className="fr-wrap fr2-proceso-grid">
+          <div className="fr2-proceso-aside">
+            <span className="eyebrow reveal">Cómo trabajamos</span>
+            <h2 className="reveal d1">Paso a paso, y con tus números delante</h2>
+            <p className="reveal d2">
               Nadie firma a ciegas. Antes de decidir nada tendremos varias reuniones, cada una con un objetivo, para
               que conozcas el modelo y veas cómo funcionaría en tu caso.
             </p>
+            <div className="fr2-sticker reveal d3">
+              <p><strong>¿Ya tienes un local?</strong> Cuéntanoslo en tu primer mensaje y lo estudiamos desde la primera reunión.</p>
+              <CtaInfo className="btn btn-dark">Escríbenos</CtaInfo>
+            </div>
           </div>
-          <ol className="fr-timeline">
+          <ol className="fr2-timeline">
             {F.pasos.map((p, i) => (
               <li className="reveal" key={p.title}>
-                <span className="fr-step-n" aria-hidden="true">{i + 1}</span>
-                <div>
+                <span className="fr2-step" aria-hidden="true">{i + 1}</span>
+                <div className="fr2-step-body">
                   <h3>{p.title}</h3>
                   <p>{p.text}</p>
                 </div>
               </li>
             ))}
           </ol>
-          <div className="fr-callout reveal">
-            <p><strong>¿Ya tienes un local?</strong> Cuéntanoslo en tu primer mensaje y lo estudiamos desde la primera reunión.</p>
-            <CtaInfo>Escríbenos</CtaInfo>
-          </div>
         </div>
       </section>
 
       {/* ---------- GALERÍA ---------- */}
-      <section className="city-gallery-section reveal" aria-label="Fotos de nuestras tiendas">
+      <section className="city-gallery-section fr2-gallery reveal" aria-label="Fotos de nuestras tiendas">
         <div className="city-gallery-head">
+          <span className="eyebrow">Nuestras tiendas</span>
           <h2>Así es un Açaí Paradise</h2>
         </div>
         <div className="city-gallery-wrap">
@@ -269,20 +292,24 @@ export default function Franquicias() {
       </section>
 
       {/* ---------- FAQ ---------- */}
-      <section className="city-faq reveal" aria-label="Preguntas frecuentes">
-        <h2>Preguntas frecuentes sobre la franquicia</h2>
-        <div className="city-faq-list">
-          {F.faq.map((f) => (
-            <details key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
+      <section className="fr2-faq" aria-label="Preguntas frecuentes">
+        <div className="city-faq reveal">
+          <span className="eyebrow">Dudas habituales</span>
+          <h2>Preguntas frecuentes sobre la franquicia</h2>
+          <div className="city-faq-list">
+            {F.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ---------- CTA FINAL ---------- */}
       <section className="fr-final" aria-label="Contacto para franquicias">
+        <div className="fr-grain fr-grain--final" aria-hidden="true" />
         <div className="fr-final-bg">
           <Photo
             src="/assets/franquicia-ciudad.webp"
