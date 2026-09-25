@@ -27,7 +27,8 @@ import type { Plugin } from 'vite';
 
 import { GRANADA, SEVILLA } from './src/pages/cityData';
 import { POSTS } from './src/pages/blogData';
-import { buildCitySchema, buildPostSchema, SITE } from './src/seo/schemas';
+import { FRANQUICIAS } from './src/pages/franquiciasData';
+import { buildCitySchema, buildPostSchema, buildFranquiciasSchema, SITE } from './src/seo/schemas';
 
 interface Route {
   path: string;
@@ -74,6 +75,15 @@ function routes(): Route[] {
       canonical: `${SITE}/blog`,
       ogImage: `${SITE}/og-image.png`,
       schema: null,
+    },
+    {
+      path: 'franquicias',
+      title: FRANQUICIAS.title,
+      description: FRANQUICIAS.description,
+      canonical: FRANQUICIAS.canonical,
+      ogImage: `${SITE}${FRANQUICIAS.heroImg}`,
+      schema: buildFranquiciasSchema(FRANQUICIAS),
+      schemaId: 'franquicias-schema',
     },
     ...POSTS.map((p) => ({
       path: `blog/${p.slug}`,

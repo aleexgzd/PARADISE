@@ -10,7 +10,15 @@ export default function Footer() {
         <div className="footer-claim reveal">
           El paraíso cabe en un <span className="acc">bowl</span>
         </div>
-        <img className="footer-mascot reveal d1" src="/assets/f8efcdd675.svg" alt="" aria-hidden="true" />
+        <img
+          className="footer-bag reveal d1"
+          src="/assets/marca-bolsa-800.webp"
+          alt="Bolsa de Açaí Paradise con el texto El paraíso cabe en un bowl"
+          width={800}
+          height={1200}
+          loading="lazy"
+        />
+        <img className="footer-mascot reveal d2" src="/assets/f8efcdd675.svg" alt="" aria-hidden="true" />
       </div>
       <div className="footer-grid">
         <div className="footer-brand">
@@ -23,7 +31,7 @@ export default function Footer() {
             <li><a href="#manifiesto">Quiénes somos</a></li>
             <li><a href="#bowls">Productos</a></li>
             <li><a href="/blog" onClick={(e) => navigate(e, '/blog')}>Blog</a></li>
-            <li><a href="#franquicias">Franquicias</a></li>
+            <li><a href="/franquicias" onClick={(e) => navigate(e, '/franquicias')}>Franquicias</a></li>
             <li><a href="#tiendas">Contacto</a></li>
           </ul>
         </div>

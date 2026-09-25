@@ -21,13 +21,17 @@ import CityPage from './pages/CityPage';
 import { GRANADA, SEVILLA } from './pages/cityData';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
+import Franquicias from './pages/Franquicias';
 import CookieBanner from './components/CookieBanner';
 
-type Page = 'home' | 'granada' | 'sevilla' | 'blog' | 'blogpost' | 'privacidad' | 'cookies' | 'aviso-legal';
+type Page = 'home' | 'granada' | 'sevilla' | 'franquicias' | 'blog' | 'blogpost' | 'privacidad' | 'cookies' | 'aviso-legal';
 
-function getPage(path: string): Page {
+function getPage(rawPath: string): Page {
+  // Sin barra final: /granada/ y /granada son la misma página.
+  const path = rawPath.replace(/\/+$/, '') || '/';
   if (path === '/granada') return 'granada';
   if (path === '/sevilla') return 'sevilla';
+  if (path === '/franquicias') return 'franquicias';
   if (path === '/blog') return 'blog';
   if (path.startsWith('/blog/')) return 'blogpost';
   if (path === '/privacidad') return 'privacidad';
@@ -88,6 +92,7 @@ export default function App() {
       {page === 'home' && <HomePage />}
       {page === 'granada' && <CityPage city={GRANADA} />}
       {page === 'sevilla' && <CityPage city={SEVILLA} />}
+      {page === 'franquicias' && <Franquicias />}
       {page === 'blog' && <BlogIndex />}
       {/* key por ruta: fuerza el remontaje al cambiar de artículo, para que se
           recalculen slug, <head> y JSON-LD en lugar de conservar los del anterior. */}

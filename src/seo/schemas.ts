@@ -7,6 +7,7 @@
 
 import type { CityData } from '../pages/cityData';
 import type { BlogPost } from '../pages/blogData';
+import type { FranquiciasData } from '../pages/franquiciasData';
 
 export const SITE = 'https://www.acaiparadise.es';
 
@@ -109,6 +110,41 @@ export function buildPostSchema(p: BlogPost) {
             })),
           }]
         : []),
+    ],
+  };
+}
+
+export function buildFranquiciasSchema(f: FranquiciasData) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${f.canonical}#webpage`,
+        url: f.canonical,
+        name: f.title,
+        description: f.description,
+        inLanguage: 'es-ES',
+        primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${f.heroImg}` },
+        about: { '@type': 'Organization', name: 'Açaí Paradise', url: SITE, sameAs: SOCIAL },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${f.canonical}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Franquicias', item: f.canonical },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${f.canonical}#faq`,
+        mainEntity: f.faq.map((q) => ({
+          '@type': 'Question',
+          name: q.q,
+          acceptedAnswer: { '@type': 'Answer', text: q.a },
+        })),
+      },
     ],
   };
 }

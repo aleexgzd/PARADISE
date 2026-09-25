@@ -77,7 +77,7 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
               <li><a href="/sevilla" onClick={(e) => goPath(e, '/sevilla')}>Sevilla</a></li>
             </ul>
           </li>
-          <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
+          <li><a href="/franquicias" onClick={(e) => goPath(e, '/franquicias')}>Franquicias</a></li>
           <li><a href="/blog" onClick={(e) => goPath(e, '/blog')}>Blog</a></li>
         </ul>
         <ul className={`nav-mobile${menuOpen ? ' open' : ''}`}>
@@ -88,7 +88,7 @@ export default function Header({ forceScrolled = false }: HeaderProps) {
             <a className="nav-mobile-sub" href="/granada" onClick={(e) => goPath(e, '/granada')}>Granada</a>
             <a className="nav-mobile-sub" href="/sevilla" onClick={(e) => goPath(e, '/sevilla')}>Sevilla</a>
           </li>
-          <li><a href={`${prefix}#franquicias`} onClick={(e) => navTo(e, '#franquicias')}>Franquicias</a></li>
+          <li><a href="/franquicias" onClick={(e) => goPath(e, '/franquicias')}>Franquicias</a></li>
           <li><a href="/blog" onClick={(e) => goPath(e, '/blog')}>Blog</a></li>
           <li><a href={`${prefix}#tiendas`} onClick={(e) => navTo(e, '#tiendas')}>A domicilio</a></li>
         </ul>
