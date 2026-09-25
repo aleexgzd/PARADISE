@@ -1821,10 +1821,6 @@ footer {
 .fr .fr-final .fr-final-mail { font-size: 0.92rem; margin: 18px 0 0; }
 .fr-final-mail a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; overflow-wrap: anywhere; }
 
-/* Foto de la bolsa en el footer */
-.footer-bag { width: clamp(120px, 12vw, 180px); height: auto; border-radius: 14px; flex-shrink: 0; box-shadow: 0 18px 40px -20px rgba(13,13,13,0.5); }
-/* .reveal.in pone transform:none; la inclinación se aplica una vez visible */
-.footer-bag.in { transform: rotate(-3deg); }
 
 @media (max-width: 1100px) {
   .fr-cards { grid-template-columns: repeat(2, 1fr); }
@@ -1861,9 +1857,6 @@ footer {
   .fr-final-bg img { object-position: 72% 100%; }
   .fr-final-in { padding: 72px 5vw 280px; }
   .fr-final-in > * { max-width: none; }
-}
-@media (max-width: 900px) {
-  .footer-bag { display: none; }
 }
 @media (max-width: 700px) {
   .fr-cards--dark { grid-template-columns: 1fr; }
