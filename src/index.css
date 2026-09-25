@@ -1630,98 +1630,91 @@ footer {
 
 /* =============================================
    FRANQUICIAS (/franquicias)
-   Página de captación: convence y lleva al email. Sin cifras de negocio.
-   Paleta: azul de marca (hero), blanco / crema (lectura), amarillo (manifiesto
-   y CTA), azul tinta (acompañamiento). Una sola acción: pedir el dossier.
+   Página de captación: convence y lleva al contacto. Sin cifras de negocio.
+   Paleta: azul de marca (hero), blanco / crema (lectura), amarillo (lema y
+   CTA), azul tinta (acompañamiento), cielo de Granada (cierre).
    ============================================= */
-.fr { background: var(--blanco); }
+.fr { background: var(--blanco); overflow-x: clip; }
 .fr h2 {
   font-family: var(--f-display); font-weight: 400;
   font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 0.95;
   margin-bottom: 20px; color: var(--negro); text-wrap: balance;
 }
+.fr h3 { text-wrap: balance; }
 .fr p { font-size: 1.06rem; line-height: 1.65; color: rgba(13,13,13,0.84); margin-bottom: 1em; }
 .fr .eyebrow { margin-bottom: 14px; }
 .fr-wrap { max-width: 1200px; margin: 0 auto; }
 .fr-section { padding: clamp(64px, 9vw, 120px) 4vw; scroll-margin-top: 80px; }
-.fr-head { max-width: 680px; margin: 0 auto 44px; text-align: center; }
+.fr-head { max-width: 700px; margin: 0 auto 44px; text-align: center; }
 .fr-head .eyebrow { justify-content: center; }
-.fr-center { display: flex; justify-content: center; margin-top: 44px; }
 
-/* Hero partido: texto sobre azul de marca + foto real */
-.fr-hero {
-  display: grid; grid-template-columns: 1.08fr 0.92fr;
-  min-height: min(94vh, 880px);
-  padding-top: 78px;
-  background: var(--azul); color: var(--blanco);
-}
-.fr-hero-text {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(40px, 6vw, 88px) clamp(28px, 5vw, 72px) clamp(40px, 5vw, 72px) max(4vw, calc((100vw - 1200px) / 2));
-}
-.fr-crumbs { font-family: var(--f-mono); font-size: 0.78rem; display: flex; gap: 10px; margin-bottom: 26px; color: rgba(255,255,255,0.88); }
+/* Hero: texto + foto en tarjeta, tamaño contenido */
+.fr-hero { background: var(--azul); color: var(--blanco); padding: 124px 4vw 48px; }
+.fr-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.fr-crumbs { font-family: var(--f-mono); font-size: 0.78rem; display: flex; gap: 10px; margin-bottom: 24px; color: rgba(255,255,255,0.9); }
 .fr-crumbs a { text-decoration: underline; text-underline-offset: 3px; }
 .fr-hero h1 {
   font-family: var(--f-display); font-weight: 400;
-  font-size: clamp(2.7rem, 5.6vw, 5.2rem); line-height: 0.93;
-  margin-bottom: 26px; text-wrap: balance;
+  font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 0.94;
+  margin-bottom: 24px; text-wrap: balance;
 }
 .fr-hero h1 .acc { color: var(--amarillo); display: block; margin-top: 0.12em; }
 .fr-kicker {
   display: flex; align-items: center; gap: 12px;
   font-family: var(--f-mono); font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--amarillo); margin-bottom: 20px; line-height: 1.2;
+  color: var(--amarillo); margin-bottom: 18px; line-height: 1.2;
 }
 .fr-kicker::before { content: ''; width: 28px; height: 1px; background: currentColor; }
-.fr .fr-hero-sub { font-size: clamp(1.05rem, 1.35vw, 1.2rem); color: var(--blanco); max-width: 48ch; margin-bottom: 30px; }
-.fr-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
-.fr .fr-proof { font-family: var(--f-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--blanco); margin: 0 0 26px; }
+.fr .fr-hero-sub { font-size: clamp(1.03rem, 1.3vw, 1.15rem); color: var(--blanco); max-width: 50ch; margin-bottom: 28px; }
+.fr-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+.fr .fr-proof { font-family: var(--f-mono); font-size: 0.8rem; letter-spacing: 0.04em; line-height: 1.5; color: var(--blanco); margin: 0; }
 .fr-stars { color: var(--amarillo); letter-spacing: 0.08em; font-size: 0.95rem; margin-right: 10px; }
-.fr-pills { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.fr-hero-media {
+  margin: 0; justify-self: end; width: 100%; max-width: 560px; aspect-ratio: 5 / 4;
+  border-radius: 24px; overflow: hidden; line-height: 0; background: var(--azul-deep);
+  box-shadow: 0 34px 60px -30px rgba(10,20,70,0.6);
+}
+.fr-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.fr-pills {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.25);
+}
 .fr-pills li {
   display: inline-flex; align-items: center; gap: 8px;
   border: 1.5px solid rgba(255,255,255,0.5); border-radius: 999px;
   padding: 8px 14px; font-size: 0.86rem; font-weight: 500;
 }
 .fr-pills li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amarillo); flex-shrink: 0; }
-.fr-hero-media { position: relative; overflow: hidden; background: var(--azul-deep); }
-.fr-hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 40%; }
 
 /* Bloques de texto + foto */
 .fr-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
 .fr-split--rev { grid-template-columns: 0.85fr 1.15fr; }
-.fr-copy { max-width: 560px; }
+.fr-copy { max-width: 580px; }
 .fr-photo { margin: 0; border-radius: 22px; overflow: hidden; line-height: 0; box-shadow: 0 30px 60px -32px rgba(13,13,13,0.5); }
 .fr-photo img { width: 100%; height: 100%; object-fit: cover; }
 .fr-photo-land { aspect-ratio: 4 / 3; }
 .fr-photo-port { aspect-ratio: 4 / 5; }
 
-/* Por qué funciona */
+/* Tarjetas (razones y acompañamiento) */
 .fr-razones { background: var(--crema); }
 .fr-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .fr-card { background: var(--blanco); border-radius: 20px; padding: 28px 24px 26px; border-top: 4px solid var(--azul); }
 .fr-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.5rem; line-height: 1.02; margin-bottom: 12px; color: var(--azul-ink); }
 .fr .fr-card p { font-size: 0.97rem; line-height: 1.55; margin: 0; }
-.fr-inline-cta { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 44px; }
-.fr .fr-inline-cta p { margin: 0; font-weight: 600; color: var(--negro); }
 
-/* Manifiesto */
-.fr-quote { background: var(--amarillo); padding: clamp(64px, 9vw, 120px) 4vw; }
+/* Lema */
+.fr-quote { background: var(--amarillo); padding: clamp(56px, 8vw, 104px) 4vw; }
 .fr .fr-quote p {
   font-family: var(--f-display); font-size: clamp(2rem, 4.8vw, 3.9rem); line-height: 1;
-  color: var(--negro); max-width: 20ch; margin: 0 auto; text-align: center; text-wrap: balance;
+  color: var(--negro); max-width: 22ch; margin: 0 auto; text-align: center; text-wrap: balance;
 }
 .fr-quote p span { color: var(--azul-deep); }
 
-/* Perfil */
-.fr-check { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin-top: 10px; }
-.fr-check li { position: relative; padding-left: 30px; font-weight: 500; line-height: 1.45; }
-.fr-check li::before {
-  content: ''; position: absolute; left: 0; top: 0.18em; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--azul);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='8' fill='black'/><path d='M4.5 8.3l2.3 2.3 4.7-4.9' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;
-          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='8' fill='black'/><path d='M4.5 8.3l2.3 2.3 4.7-4.9' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;
-}
+/* Perfil: dos maneras */
+.fr-perfiles { display: grid; gap: 14px; margin-top: 8px; }
+.fr-perfil-card { background: var(--crema); border-radius: 18px; padding: 22px 22px 20px; border-left: 4px solid var(--azul); }
+.fr-perfil-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.4rem; line-height: 1.05; margin-bottom: 8px; color: var(--azul-ink); }
+.fr .fr-perfil-card p { font-size: 0.98rem; line-height: 1.55; margin: 0; }
 
 /* Acompañamiento (azul tinta) */
 .fr-apoyo { background: var(--azul-ink); color: var(--blanco); }
@@ -1729,26 +1722,33 @@ footer {
 .fr .fr-apoyo .fr-head p { color: rgba(255,255,255,0.9); }
 .fr-apoyo .eyebrow { color: var(--amarillo); }
 .fr-apoyo .eyebrow::before { background: var(--amarillo); }
+.fr-cards--dark { grid-template-columns: repeat(3, 1fr); }
 .fr-cards--dark .fr-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-top: 4px solid var(--amarillo); }
 .fr-cards--dark .fr-card h3 { color: var(--blanco); }
 .fr .fr-cards--dark .fr-card p { color: rgba(255,255,255,0.88); }
 
-/* Pasos */
-.fr-pasos { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
-.fr-pasos li { position: relative; text-align: center; padding: 0 12px; }
-.fr-paso-n {
+/* Proceso: línea temporal */
+.fr-timeline { list-style: none; max-width: 780px; margin: 0 auto; position: relative; }
+.fr-timeline::before {
+  content: ''; position: absolute; left: 27px; top: 28px; bottom: 28px;
+  border-left: 2px dashed rgba(65,111,228,0.35);
+}
+.fr-timeline li { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; padding-bottom: 26px; }
+.fr-timeline li:last-child { padding-bottom: 0; }
+.fr-step-n {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 64px; height: 64px; border-radius: 50%; margin-bottom: 18px;
-  background: var(--azul); color: var(--blanco);
-  font-family: var(--f-display); font-size: 1.9rem; line-height: 1;
-  position: relative; z-index: 1;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--azul); color: var(--blanco); position: relative; z-index: 1;
+  font-family: var(--f-display); font-size: 1.6rem; line-height: 1;
+  box-shadow: 0 0 0 6px var(--blanco);
 }
-.fr-pasos li:not(:last-child)::after {
-  content: ''; position: absolute; top: 32px; left: calc(50% + 44px); right: calc(-50% + 44px);
-  border-top: 2px dashed rgba(65,111,228,0.35);
+.fr-timeline h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.55rem; line-height: 1; margin: 12px 0 6px; }
+.fr .fr-timeline p { font-size: 0.99rem; margin: 0; }
+.fr-callout {
+  max-width: 780px; margin: 40px auto 0; background: var(--crema); border-radius: 20px;
+  padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
 }
-.fr-pasos h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.6rem; line-height: 1; margin-bottom: 10px; }
-.fr .fr-pasos p { font-size: 0.98rem; max-width: 30ch; margin: 0 auto; }
+.fr .fr-callout p { margin: 0; font-size: 1rem; color: var(--negro); }
 
 /* CTA final sobre el cielo de Granada */
 .fr-final {
@@ -1764,10 +1764,10 @@ footer {
 .fr-final-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 78% 70%; }
 .fr-final-in { position: relative; z-index: 1; padding: clamp(90px, 12vw, 160px) 4vw; }
 .fr-final-in > * { max-width: min(520px, 42vw); }
-.fr-final h2 { color: var(--blanco); font-size: clamp(2.6rem, 6vw, 5rem); max-width: 11ch; }
+.fr-final h2 { color: var(--blanco); font-size: clamp(2.6rem, 6vw, 5rem); }
 .fr .fr-final p { color: var(--blanco); max-width: 40ch; font-size: 1.12rem; margin-bottom: 28px; }
 .fr .fr-final .fr-final-mail { font-size: 0.92rem; margin: 18px 0 0; }
-.fr-final-mail a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.fr-final-mail a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; overflow-wrap: anywhere; }
 
 /* Foto de la bolsa en el footer */
 .footer-bag { width: clamp(120px, 12vw, 180px); height: auto; border-radius: 14px; flex-shrink: 0; box-shadow: 0 18px 40px -20px rgba(13,13,13,0.5); }
@@ -1779,17 +1779,16 @@ footer {
 }
 @media (max-width: 980px) {
   .fr-section { padding: clamp(56px, 12vw, 84px) 5vw; }
-  .fr-hero { grid-template-columns: 1fr; min-height: 0; padding-top: 64px; }
-  .fr-hero-media { order: -1; height: 38vh; min-height: 260px; max-height: 420px; }
-  .fr-hero-media img { object-position: 40% 35%; }
-  .fr-hero-text { padding: 34px 5vw 48px; }
-  .fr-hero h1 { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+  .fr-hero { padding: 96px 5vw 36px; }
+  .fr-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .fr-hero h1 { font-size: clamp(2.3rem, 9vw, 3.6rem); }
+  .fr-hero-media { justify-self: stretch; max-width: none; aspect-ratio: 16 / 10; }
+  .fr-pills { margin-top: 28px; padding-top: 20px; }
   .fr-split, .fr-split--rev { grid-template-columns: 1fr; }
   .fr-split--rev .fr-photo { order: -1; }
-  .fr-photo-port { aspect-ratio: 4 / 3.4; }
+  .fr-photo-land, .fr-photo-port { aspect-ratio: 3 / 2; }
+  .fr-photo-port img { object-position: 50% 35%; }
   .fr-copy { max-width: none; }
-  .fr-pasos { grid-template-columns: 1fr; gap: 34px; }
-  .fr-pasos li:not(:last-child)::after { display: none; }
   .fr-final-bg {
     top: auto; left: 0; width: 100%; height: 300px;
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 45%);
@@ -1802,9 +1801,22 @@ footer {
 @media (max-width: 900px) {
   .footer-bag { display: none; }
 }
+@media (max-width: 700px) {
+  .fr-cards--dark { grid-template-columns: 1fr; }
+  .fr-callout { flex-direction: column; align-items: stretch; text-align: left; }
+  .fr-callout .btn { justify-content: center; }
+}
 @media (max-width: 560px) {
   .fr-cards { grid-template-columns: 1fr; }
-  .fr-check { grid-template-columns: 1fr; }
-  .fr-hero-ctas .btn, .fr-center .btn, .fr-final .btn, .fr-inline-cta .btn { width: 100%; justify-content: center; }
+  .fr-hero-ctas .btn, .fr-final .btn { width: 100%; justify-content: center; }
   .fr-pills li { font-size: 0.8rem; padding: 7px 12px; }
+  .fr-hero-media { aspect-ratio: 4 / 3; border-radius: 18px; }
+  .fr-timeline::before { left: 21px; }
+  .fr-timeline li { grid-template-columns: 44px 1fr; gap: 16px; }
+  .fr-step-n { width: 44px; height: 44px; font-size: 1.3rem; }
+  .fr-timeline h3 { margin-top: 8px; font-size: 1.4rem; }
+}
+@media (max-width: 380px) {
+  .fr-hero h1 { font-size: 2.15rem; }
+  .fr h2 { font-size: 1.95rem; }
 }

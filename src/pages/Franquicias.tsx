@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { FRANQUICIAS as F } from './franquiciasData';
+import { GRANADA, SEVILLA } from './cityData';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { useReveal } from '../hooks/useReveal';
 import { buildFranquiciasSchema, SITE } from '../seo/schemas';
 import Photo from '../components/Photo';
-import { GRANADA, SEVILLA } from './cityData';
 
 function nav(e: React.MouseEvent, path: string) {
   e.preventDefault();
@@ -13,7 +13,7 @@ function nav(e: React.MouseEvent, path: string) {
 
 /** Único punto de conversión: mailto con asunto y cuerpo preparados.
  *  `data-cta` sirve para medir los clics en GTM. */
-function CtaDossier({ children = 'Quiero el dossier' }: { children?: React.ReactNode }) {
+function CtaInfo({ children = 'Quiero información' }: { children?: React.ReactNode }) {
   return (
     <a href={F.mailto} className="btn btn-yellow" data-cta="franquicia">
       {children} <span className="arrow" aria-hidden="true">→</span>
@@ -59,41 +59,45 @@ export default function Franquicias() {
       {/* ---------- HERO ---------- */}
       {/* <section>, no <header>: un <header> heredaría el position:fixed del menú. */}
       <section className="fr-hero" aria-label="Franquicia Açaí Paradise">
-        <div className="fr-hero-text">
-          <nav className="fr-crumbs" aria-label="Migas de pan">
-            <a href="/" onClick={(e) => nav(e, '/')}>Inicio</a>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">Franquicias</span>
-          </nav>
-          <h1>
-            <span className="fr-kicker">Franquicia de açaí</span>
-            El paraíso cabe en un bowl. <span className="acc">¿Lo abrimos en tu ciudad?</span>
-          </h1>
-          <p className="fr-hero-sub">
-            Empezamos en 2024 con una tienda en Granada y una idea sencilla: açaí de verdad, bien hecho y para
-            llevar. Hoy estamos también en Sevilla y buscamos a la persona que abra el siguiente Paradise.
-          </p>
-          <div className="fr-hero-ctas">
-            <CtaDossier />
-            <a href="#como-empezar" className="btn btn-ghost">Cómo funciona</a>
+        <div className="fr-wrap fr-hero-grid">
+          <div className="fr-hero-text">
+            <nav className="fr-crumbs" aria-label="Migas de pan">
+              <a href="/" onClick={(e) => nav(e, '/')}>Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">Franquicias</span>
+            </nav>
+            <h1>
+              <span className="fr-kicker">Franquicia de açaí</span>
+              El paraíso cabe en un bowl. <span className="acc">¿Lo abrimos en tu ciudad?</span>
+            </h1>
+            <p className="fr-hero-sub">
+              Un negocio de açaí para llevar, sin cocina ni salida de humos, probado en Granada y Sevilla. Antes de
+              dar ningún paso te enseñamos el modelo, estudiamos tus números y vemos juntos cómo sería tu tienda.
+            </p>
+            <div className="fr-hero-ctas">
+              <CtaInfo />
+              <a href="#como-trabajamos" className="btn btn-ghost">Cómo trabajamos</a>
+            </div>
+            <p className="fr-proof">
+              <span className="fr-stars" aria-hidden="true">★★★★★</span>
+              {GRANADA.rating} en Granada · {SEVILLA.rating} en Sevilla · reseñas de Google
+            </p>
           </div>
-          <p className="fr-proof">
-            <span className="fr-stars" aria-hidden="true">★★★★★</span>
-            {GRANADA.rating} en Granada · {SEVILLA.rating} en Sevilla · reseñas de Google
-          </p>
+          <figure className="fr-hero-media">
+            <Photo
+              src={F.heroImg}
+              alt={F.heroAlt}
+              width={1600}
+              height={1067}
+              priority
+              sizes="(max-width: 980px) 92vw, 560px"
+            />
+          </figure>
+        </div>
+        <div className="fr-wrap">
           <ul className="fr-pills" aria-label="Lo que ofrece el modelo">
             {F.pills.map((p) => <li key={p}>{p}</li>)}
           </ul>
-        </div>
-        <div className="fr-hero-media">
-          <Photo
-            src={F.heroImg}
-            alt={F.heroAlt}
-            width={1600}
-            height={1544}
-            priority
-            sizes="(max-width: 980px) 100vw, 48vw"
-          />
         </div>
       </section>
 
@@ -109,11 +113,11 @@ export default function Franquicias() {
           </div>
           <figure className="fr-photo fr-photo-land reveal d2">
             <Photo
-              src="/assets/franquicia-grupo.webp"
-              alt="Cuatro amigos comiendo bowls de açaí sentados en una plaza de Granada"
+              src="/assets/franquicia-bowl-cola.webp"
+              alt="Bowl de açaí en la mano con clientes haciendo cola en la tienda al fondo"
               width={1600}
               height={1067}
-              sizes="(max-width: 980px) 100vw, 50vw"
+              sizes="(max-width: 980px) 92vw, 50vw"
             />
           </figure>
         </div>
@@ -126,8 +130,8 @@ export default function Franquicias() {
             <span className="eyebrow">Por qué funciona</span>
             <h2>¿Es rentable un negocio de açaí?</h2>
             <p>
-              Los números los compartimos en el dossier, con su contexto. Aquí te contamos lo que hay detrás de
-              ellos.
+              Los números los trabajamos contigo en las reuniones, aplicados a tu local. Aquí te contamos lo que hay
+              detrás de ellos.
             </p>
           </div>
           <div className="fr-cards">
@@ -138,18 +142,13 @@ export default function Franquicias() {
               </div>
             ))}
           </div>
-          <div className="fr-inline-cta reveal">
-            <p>¿Quieres ver los números?</p>
-            <CtaDossier>Pide el dossier</CtaDossier>
-          </div>
         </div>
       </section>
 
-      {/* ---------- MANIFIESTO ---------- */}
-      <section className="fr-quote" aria-label="Qué buscamos">
+      {/* ---------- LEMA ---------- */}
+      <section className="fr-quote" aria-label="El modelo en una frase">
         <p className="reveal">
-          No buscamos a quien solo quiera invertir. Buscamos a quien quiera <span>levantar la persiana</span> cada
-          mañana.
+          Sencillo de operar. Fácil de controlar. <span>Hecho para replicarse.</span>
         </p>
       </section>
 
@@ -162,18 +161,23 @@ export default function Franquicias() {
               alt="Grupo de jóvenes saliendo de la tienda Açaí Paradise con sus bowls"
               width={1600}
               height={2400}
-              sizes="(max-width: 980px) 100vw, 40vw"
+              sizes="(max-width: 980px) 92vw, 40vw"
             />
           </figure>
           <div className="fr-copy">
             <span className="eyebrow reveal">Para quién es</span>
-            <h2 className="reveal d1">Una franquicia para jóvenes emprendedores (y para cualquiera con ganas)</h2>
-            <div className="reveal d2">
-              {F.perfil.parrafos.map((p, i) => <p key={i}>{p}</p>)}
+            <h2 className="reveal d1">Una franquicia para emprendedores, jóvenes y no tan jóvenes</h2>
+            <p className="reveal d1">
+              Hay dos maneras de tener un Açaí Paradise, y las dos funcionan. Lo importante es que encaje contigo.
+            </p>
+            <div className="fr-perfiles">
+              {F.perfiles.map((p, i) => (
+                <div className={`fr-perfil-card reveal d${i + 2}`} key={p.title}>
+                  <h3>{p.title}</h3>
+                  <p>{p.text}</p>
+                </div>
+              ))}
             </div>
-            <ul className="fr-check reveal d3" aria-label="Qué buscamos en ti">
-              {F.perfil.rasgos.map((r) => <li key={r}>{r}</li>)}
-            </ul>
           </div>
         </div>
       </section>
@@ -183,11 +187,11 @@ export default function Franquicias() {
         <div className="fr-wrap">
           <div className="fr-head reveal">
             <span className="eyebrow">Qué incluye</span>
-            <h2>No vas a abrir solo</h2>
-            <p>Desde que buscamos el local hasta mucho después de la inauguración, estamos a tu lado.</p>
+            <h2>No abres solo. Y no te quedas solo.</h2>
+            <p>Te acompañamos para abrir y seguimos contigo mientras tu tienda crece.</p>
           </div>
           <div className="fr-cards fr-cards--dark">
-            {F.acompanamiento.map((a, i) => (
+            {F.apoyo.map((a, i) => (
               <div className={`fr-card reveal d${(i % 3) + 1}`} key={a.title}>
                 <h3>{a.title}</h3>
                 <p>{a.text}</p>
@@ -197,24 +201,31 @@ export default function Franquicias() {
         </div>
       </section>
 
-      {/* ---------- CÓMO EMPEZAR ---------- */}
-      <section className="fr-section fr-pasos-sec" id="como-empezar">
+      {/* ---------- PROCESO ---------- */}
+      <section className="fr-section fr-proceso" id="como-trabajamos">
         <div className="fr-wrap">
           <div className="fr-head reveal">
-            <span className="eyebrow">Cómo empezamos</span>
-            <h2>Tres pasos para tu primer Paradise</h2>
+            <span className="eyebrow">Cómo trabajamos</span>
+            <h2>Paso a paso, y con tus números delante</h2>
+            <p>
+              Nadie firma a ciegas. Antes de decidir nada tendremos varias reuniones, cada una con un objetivo, para
+              que conozcas el modelo y veas cómo funcionaría en tu caso.
+            </p>
           </div>
-          <ol className="fr-pasos">
+          <ol className="fr-timeline">
             {F.pasos.map((p, i) => (
-              <li className={`reveal d${i + 1}`} key={p.title}>
-                <span className="fr-paso-n" aria-hidden="true">{i + 1}</span>
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
+              <li className="reveal" key={p.title}>
+                <span className="fr-step-n" aria-hidden="true">{i + 1}</span>
+                <div>
+                  <h3>{p.title}</h3>
+                  <p>{p.text}</p>
+                </div>
               </li>
             ))}
           </ol>
-          <div className="fr-center reveal">
-            <CtaDossier />
+          <div className="fr-callout reveal">
+            <p><strong>¿Ya tienes un local?</strong> Cuéntanoslo en tu primer mensaje y lo estudiamos desde la primera reunión.</p>
+            <CtaInfo>Escríbenos</CtaInfo>
           </div>
         </div>
       </section>
@@ -264,11 +275,11 @@ export default function Franquicias() {
         <div className="fr-wrap fr-final-in">
           <h2 className="reveal">¿Lo abrimos en tu ciudad?</h2>
           <p className="reveal d1">
-            Escríbenos. Te enviamos el dossier completo, con todos los números, y lo hablamos por teléfono sin
-            ningún compromiso.
+            Escríbenos y cuéntanos tu idea. Te enviamos el dossier, lo repasamos juntos y, si encaja, estudiamos tu
+            caso con números reales. Sin ningún compromiso.
           </p>
           <div className="reveal d2">
-            <CtaDossier />
+            <CtaInfo />
           </div>
           <p className="fr-final-mail reveal d3">o escribe directamente a <a href={F.mailto} data-cta="franquicia">info@acaiparadise.es</a></p>
         </div>
